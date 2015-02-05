@@ -44,8 +44,8 @@ public class loginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nomb=request.getParameter("text");
-		String pass=request.getParameter("password");
+		String nomb=request.getParameter("user");
+		String pass=request.getParameter("pass");
 		String usu=null;
 		String passw=null;
 		//Me creo mi controlador para poder gestionar esta parte

@@ -32,8 +32,8 @@ public class ControladorDAO implements IControladorDAO {
 			//pedimos el objeto en la ruta java:comp/env/jdbc/NOMBRE_DS
 			miDS = (DataSource) ic.lookup("java:comp/env/jdbc/MiDataSource");
 			//cogemos la conexión
-			Connection conexion=null;
-			conexion=miDS.getConnection();
+			Connection conexion=miDS.getConnection();
+			
 			//Ya podemos trabajar con normalidad
 			oStmt = conexion.createStatement();
 		} catch (NamingException | SQLException e) {
@@ -75,17 +75,19 @@ public class ControladorDAO implements IControladorDAO {
 	public boolean validarAdministrador(Administrador ad) throws SQLException {
 
 		String pass="";
-		String query="SELECT NOMBRE FROM USUARIO WHERE NOMBRE = '"+ad.getNombreAdmin() +"'"; 
+		System.out.println("el nombre es "+ad.getNombreAdmin());
+		String query="SELECT NOMBRE,PASSWORD FROM USUARIOS WHERE NOMBRE = '"+ad.getNombreAdmin() +"'"; 
+		System.out.println(query);
 		ResultSet oRs = oStmt.executeQuery(query);
 
 		while (oRs.next())
 		{
 
 			pass = oRs.getString("PASSWORD"); // El argumento es el nombre de la columna
-
+			System.out.println(pass);
 		}
 		oStmt.close();
-		conexion.close();
+		//conexion.close();
 		if(ad.getPass().equals(pass))
 		{
 			return true;
