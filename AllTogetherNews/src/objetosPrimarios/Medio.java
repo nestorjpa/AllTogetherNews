@@ -2,7 +2,7 @@ package objetosPrimarios;
 
 public class Medio {
 	
-	private int id_medio;
+	
 	private String home;
 	private String tematica;
 	private String patronTitular;
@@ -13,12 +13,12 @@ public class Medio {
 	
 	public Medio(){}
 	
-	public Medio(int id_medio,String home,String id_tematica,String patronTitular,String patronSubtitular,String patronLink)
+	public Medio(String home,String id_tematica,String patronTitular,String patronSubtitular,String patronLink)
 	{
 		
-		this.id_medio=id_medio;
+		
 		this.home=home;
-		this.tematica=tematica;
+		this.tematica=id_tematica;
 		this.patronTitular=patronTitular;
 		this.patronSubtitular=patronSubtitular;
 		this.patronLink=patronLink;
@@ -26,12 +26,7 @@ public class Medio {
 	}
 	
 	
-	public int getId_medio() {
-		return id_medio;
-	}
-	public void setId_medio(int id_medio) {
-		this.id_medio = id_medio;
-	}
+	
 	public String getHome() {
 		return home;
 	}

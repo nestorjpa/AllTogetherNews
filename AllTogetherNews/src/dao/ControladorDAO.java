@@ -65,7 +65,16 @@ public class ControladorDAO implements IControladorDAO {
 	@Override
 	public void insertarMedio(Medio m) throws SQLException {
 
-		String query="INSERT INTO MEDIOS(ID_MEDIO, HOME, ID_TEMATICA, PATRON_TITULAR, PATRON_SUBTITULAR, PATRON_LINK) VALUES ('"+m.getId_medio()+"','"+m.getTematica()+"','"+m.getPatronTitular()+"','"+m.getPatronSubtitular()+"','"+m.getPatronLink()+"')";
+		System.out.println("Estoy en el controlador DAO");
+		Connection conexion=miDS.getConnection();
+		oStmt = conexion.createStatement();
+	
+		System.out.println("Voy a insertar "+m.getHome());
+		System.out.println("Voy a insertar "+m.getPatronTitular());
+		System.out.println("Voy a insertar "+m.getPatronSubtitular());
+		System.out.println("Voy a insertar "+m.getTematica());
+		System.out.println("Voy a insertar "+m.getPatronLink());
+		String query="INSERT INTO MEDIOS(ID_MEDIO, HOME, ID_TEMATICA, PATRON_TITULAR, PATRON_SUBTITULAR, PATRON_LINK) VALUES (medios_seq.nextval,'"+m.getHome()+"',1,'"+m.getPatronTitular()+"','"+m.getPatronSubtitular()+"','"+m.getPatronLink()+"')";
 		oStmt.executeUpdate(query);
 		oStmt.close();
 		conexion.close();
@@ -74,6 +83,9 @@ public class ControladorDAO implements IControladorDAO {
 	@Override
 	public boolean validarAdministrador(Administrador ad) throws SQLException {
 
+		Connection conexion=miDS.getConnection();
+		
+		oStmt = conexion.createStatement();
 		String pass="";
 		System.out.println("el nombre es "+ad.getNombreAdmin());
 		String query="SELECT NOMBRE,PASSWORD FROM USUARIOS WHERE NOMBRE = '"+ad.getNombreAdmin() +"'"; 
@@ -87,7 +99,7 @@ public class ControladorDAO implements IControladorDAO {
 			System.out.println(pass);
 		}
 		oStmt.close();
-		//conexion.close();
+		conexion.close();
 		if(ad.getPass().equals(pass))
 		{
 			return true;

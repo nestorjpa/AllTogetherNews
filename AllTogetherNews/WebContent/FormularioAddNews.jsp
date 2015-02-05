@@ -10,7 +10,7 @@
 <body>
 <div class="form-box">
 <h1>ALTA NOTICIAS</h1>
-<form action="AddNewsServlet" method="POST">
+<form action="AddNewServlet" method="POST">
 <input type="text" name="url" placeholder="Url"><br>
 <input type="text" name="PatronUrl" placeholder="Patrón Url">
 <input type="text" name="PatronNoticia" placeholder="Patrón Noticia">
@@ -18,13 +18,13 @@
 <input type="text" name="PatronSubtitular" placeholder="Patrón Subtitular">
 
 <div class="combo">
-<select >
-  <option selected value="Temática">--Temática--</option>
-  <option value="opc2">Actualidad</option>
-  <option value="opc1">Deportes</option>
-  <option value="opc3">Economía</option>
+<select name="Tematica">
+  <option value="NA">--Temática--</option>
+  <option value="2">Actualidad</option>
+  <option value="1">Deportes</option>
+  <option value="3">Economía</option>
 </select>
-</div>
+
  
  <input type="submit" name="add" class="button button-submit" value="AÑADIR">
  

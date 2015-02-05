@@ -41,5 +41,11 @@ public class Controlador {
 		
 		}
 
+		public void insertarMedio(Medio me) throws SQLException {
+			System.out.println("Estoy en el controlador");
+			miControladorDAO.insertarMedio(me);
+			
+		}
+
 		
 }

@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import objetosPrimarios.Medio;
+import controladorPrincipal.Controlador;
+
 /**
  * Servlet implementation class AddNewServlet
  */
@@ -38,39 +41,34 @@ public class AddNewServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url=request.getParameter("text");
-		String patronUrl=request.getParameter("Patrón Url");
-		String patronNoticia=request.getParameter("Patrón Noticia");
-		String patronTitular=request.getParameter("PatrónTitular");
-		String patronSubtitular=request.getParameter("PatrónSubtitular");
-		String comboTematica=request.getParameter("comboTematica");
-		
-		//insertar en la BBDD los datos
-		
-		//instanciar el driver
-		
-			
-			try {
-				Class.forName("oracle.jdbc.OracleDriver");
-				//Componer la url
-				String sURL="jdbc:oracle:thin:@192.168.150.199:1521:orcl";
+		String url=request.getParameter("url");
+		String patronUrl=request.getParameter("PatronUrl");
+		String patronNoticia=request.getParameter("PatronNoticia");
+		String patronTitular=request.getParameter("PatronTitular");
+		String patronSubtitular=request.getParameter("PatronSubtitular");
+		String comboTematica=request.getParameter("Tematica");
+		System.out.println("llego a sacar esto"+request.getParameter("url"));
+		System.out.println("llego al servlet y el combo tematica es "+ comboTematica);
+		//Me creo mi controlador para poder gestionar esta parte
+		Controlador control=Controlador.getControlador();
 				
-					Connection conexion = DriverManager.getConnection(sURL, "curso11","curso");            
-							
-					Statement sentencia=conexion.createStatement();
-				
-				
-				String sSQL="INSERT INTO  MEDIOS VALUES('url', 'patronUrl',' patronNoticia','patronTitular','patronSubtitular','comboTematica')";
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		//Me creo una conexion de BD mediante el datasource y lo llamo desde el controlador
+		control.crearConexionBD();
+		
+		//Me creo una instancia de medio para introducirlo en la BD
+		Medio me=new Medio(url,comboTematica,patronTitular,patronSubtitular,patronUrl);
+		
+		//Inserto el medio en la BD
+		
+		try {
+			control.insertarMedio(me);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 
-		request.getRequestDispatcher("FormularioAddNews.jsp").forward(request,response);
+	request.getRequestDispatcher("FormularioAddNews.jsp").forward(request,response);
 	}
 
 }
