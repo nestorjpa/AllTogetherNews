@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+<<<<<<< HEAD
 
 
 	<%
@@ -48,6 +49,7 @@
                 Actualizado en: 10 Febrero 2015           
          </small>        
      </footer>
+
 
 
 
