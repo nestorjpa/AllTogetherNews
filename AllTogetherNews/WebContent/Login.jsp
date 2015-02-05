@@ -8,7 +8,20 @@
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
+	<%
+	if(request.getAttribute("validacion")==null)
+	{
+		
+	}
+	else
+	{
+		String mensaje="<script language='javascript'>alert('El nusuario o la contraseña no se han insertado correctamente');</script>"; 
+		out.println(mensaje); 
+	}
+	
+	%>
+	
+	
     <header>
 	   <h1>All Together News</h1>
 	 </header>

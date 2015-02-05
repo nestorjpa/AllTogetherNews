@@ -69,11 +69,9 @@ public class loginServlet extends HttpServlet {
 			else
 			{
 				
-			/*	validacion=false;
-				request.setAttribute("validacion", false);*/
-				//response.sendRedirect("Login.jsp");
-				response.sendRedirect("Error.html");
-			//	request.getRequestDispatcher("Login.jsp").forward(request,response);
+			validacion=false;
+			request.setAttribute("validacion", false);
+			request.getRequestDispatcher("Login.jsp").forward(request,response);
 				
 			}
 		} catch (SQLException e) {
