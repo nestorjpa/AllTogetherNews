@@ -16,9 +16,9 @@
 		<ul>
 
 		
-			<li><a href="FormularioAddNew">INSERTAR NOTICIAS</a><span class="icon-images"></span></li>
-			<li><a href="FormularioTematica">INSERTAR NUEVA TEMÁTICA</a><span class="icon-file-picture"></span></li>
-			<li><a href="ModifNoticia">MODIFICAR NOTICIA</a><span class="icon-loop2"></span></li>
+			<li><a href="FormularioAddNews.jsp">INSERTAR NOTICIAS</a><span class="icon-images"></span></li>
+			<li><a href="FormularioTematica.jsp">INSERTAR NUEVA TEMÁTICA</a><span class="icon-file-picture"></span></li>
+			<li><a href="ModifNoticia.jsp">MODIFICAR NOTICIA</a><span class="icon-loop2"></span></li>
 
 		</ul>
 	</nav>
