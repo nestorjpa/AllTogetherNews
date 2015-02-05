@@ -41,13 +41,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>añadirTematicaServlet</display-name>
-    <servlet-name>añadirTematicaServlet</servlet-name>
-    <servlet-class>utils.login.añadirTematicaServlet</servlet-class>
+    <display-name>AddTematicaServlet</display-name>
+    <servlet-name>AddTematicaServlet</servlet-name>
+    <servlet-class>utils.login.AddTematicaServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>añadirTematicaServlet</servlet-name>
-    <url-pattern>/añadirTematicaServlet</url-pattern>
+    <servlet-name>AddTematicaServlet</servlet-name>
+    <url-pattern>/AddTematicaServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

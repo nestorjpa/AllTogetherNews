@@ -63,7 +63,7 @@ public class loginServlet extends HttpServlet {
 				HttpSession sesion=request.getSession();
 				sesion.setAttribute("usuario", nomb);
 				
-				request.getRequestDispatcher("FormularioAddNews.jsp").forward(request,response);
+				request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
 			}
 			
 			else
@@ -72,8 +72,8 @@ public class loginServlet extends HttpServlet {
 			/*	validacion=false;
 				request.setAttribute("validacion", false);*/
 				//response.sendRedirect("Login.jsp");
-				response.sendRedirect(""Error.html);
-				request.getRequestDispatcher("Login.jsp").forward(request,response);
+				response.sendRedirect("Error.html");
+			//	request.getRequestDispatcher("Login.jsp").forward(request,response);
 				
 			}
 		} catch (SQLException e) {

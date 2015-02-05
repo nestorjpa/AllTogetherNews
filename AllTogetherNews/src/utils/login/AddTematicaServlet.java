@@ -3,6 +3,7 @@ package utils.login;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,13 +16,13 @@ import controladorPrincipal.Controlador;
 /**
  * Servlet implementation class añadirTematicaServlet
  */
-public class añadirTematicaServlet extends HttpServlet {
+public class AddTematicaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public añadirTematicaServlet() {
+    public AddTematicaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -54,8 +55,14 @@ public class añadirTematicaServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.setAttribute("lista", lTemas);
-		request.getRequestDispatcher("FormularioTematica.jsp").forward(request,response);
+		Iterator<String> iteratorPrueba = lTemas.iterator();
+		while(iteratorPrueba.hasNext()){
+			String tema = iteratorPrueba.next();
+			System.out.print("Tema :"+tema);
+		}
+		
+		//request.setAttribute("lista", lTemas);
+		//request.getRequestDispatcher("FormularioTematica.jsp").forward(request,response);
 		
 		
 		
