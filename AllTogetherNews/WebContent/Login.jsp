@@ -10,6 +10,8 @@
 <body>
 <div class="login-box">
 <h1>LOG-IN</h1>
+
+
 <form action="loginServlet" method="POST">
  <input type="text" name="user" placeholder="Username">
  <input type="password" name="pass" placeholder="Password">

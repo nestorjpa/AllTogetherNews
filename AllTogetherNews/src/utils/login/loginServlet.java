@@ -43,7 +43,7 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		boolean validacion;
 		String nomb=request.getParameter("user");
 		String pass=request.getParameter("pass");
 		String usu=null;
@@ -68,7 +68,13 @@ public class loginServlet extends HttpServlet {
 			
 			else
 			{
-					request.getRequestDispatcher("Login.jsp").forward(request,response);
+				
+			/*	validacion=false;
+				request.setAttribute("validacion", false);*/
+				//response.sendRedirect("Login.jsp");
+				response.sendRedirect(""Error.html);
+				request.getRequestDispatcher("Login.jsp").forward(request,response);
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
