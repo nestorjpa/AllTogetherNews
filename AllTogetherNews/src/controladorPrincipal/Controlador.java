@@ -10,10 +10,12 @@ import dao.IControladorDAO;
 import objetosPrimarios.Administrador;
 import objetosPrimarios.Medio;
 import objetosPrimarios.Noticia;
+
 public class Controlador {
 
 	
 	private List<Medio> listaMedios=new ArrayList<Medio>();
+	private List<String> listaTematica=new ArrayList<String>();
 	private static Controlador miControladorPrincipal;
 	private static IControladorDAO miControladorDAO;
 	
@@ -44,6 +46,19 @@ public class Controlador {
 		public void insertarMedio(Medio me) throws SQLException {
 			System.out.println("Estoy en el controlador");
 			miControladorDAO.insertarMedio(me);
+			
+		}
+
+		public void insertarTematica(String tema) throws SQLException {
+			
+			miControladorDAO.insertarTematica(tema);
+			
+		}
+
+		public List<String> consultarTematica() throws SQLException {
+			
+			
+			return miControladorDAO.consultarTematica();
 			
 		}
 

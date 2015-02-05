@@ -16,6 +16,7 @@ import objetosPrimarios.Administrador;
 import objetosPrimarios.Medio;
 import objetosPrimarios.Noticia;
 
+
 public class ControladorDAO implements IControladorDAO {
 
 	private static ControladorDAO miControladorDAO;
@@ -50,7 +51,7 @@ public class ControladorDAO implements IControladorDAO {
 	{
 
 	}
-	public  static ControladorDAO getControladorDAO() {
+	public static ControladorDAO getControladorDAO() {
 
 		if (miControladorDAO==null) {
 
@@ -63,7 +64,7 @@ public class ControladorDAO implements IControladorDAO {
 
 
 	@Override
-	public void insertarMedio(Medio m) throws SQLException {
+	public void insertarMedio(Medio m) throws SQLException  {
 
 		System.out.println("Estoy en el controlador DAO");
 		Connection conexion=miDS.getConnection();
@@ -111,6 +112,43 @@ public class ControladorDAO implements IControladorDAO {
 
 
 
+	}
+	@Override
+	public void insertarTematica(String tema) throws SQLException {
+		
+		Connection conexion=miDS.getConnection();
+		oStmt = conexion.createStatement();
+		String query="INSERT INTO TEMATICAS(ID_TEMATICA,NOMBRE) VALUES (tematicas_seq.nextval,'"+tema+"')";
+		oStmt.executeUpdate(query);
+		oStmt.close();
+		conexion.close();
+		
+		
+		
+	}
+	@Override
+	public List<String> consultarTematica() throws SQLException {
+		
+		List<String> listaTematica=new ArrayList<String>();
+		String tema;
+		Connection conexion=miDS.getConnection();
+		oStmt = conexion.createStatement();
+		String nombre;
+		String query="SELECT NOMBRE FROM TEMATICAS"; 
+		System.out.println(query);
+		ResultSet oRs = oStmt.executeQuery(query);
+		while (oRs.next())
+		{
+
+			tema= oRs.getString("NOMBRE"); // El argumento es el nombre de la columna
+			listaTematica.add(tema);
+		}
+		oStmt.close();
+		conexion.close();
+		
+		
+		
+		return listaTematica;
 	}
 
 

@@ -29,4 +29,24 @@
     <servlet-name>AddNewServlet</servlet-name>
     <url-pattern>/AddNewServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InsertarTemaServlet</display-name>
+    <servlet-name>InsertarTemaServlet</servlet-name>
+    <servlet-class>utils.login.InsertarTemaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertarTemaServlet</servlet-name>
+    <url-pattern>/InsertarTemaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>añadirTematicaServlet</display-name>
+    <servlet-name>añadirTematicaServlet</servlet-name>
+    <servlet-class>utils.login.añadirTematicaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>añadirTematicaServlet</servlet-name>
+    <url-pattern>/añadirTematicaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
