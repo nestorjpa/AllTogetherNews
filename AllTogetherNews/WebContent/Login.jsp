@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<<<<<<< HEAD
+
 	<%
 	if(request.getAttribute("validacion")==null)
 	{
@@ -48,31 +48,6 @@
          </small>        
      </footer>
 
-=======
-    <header>
-	   <h1>All Together News</h1>
-	 </header>
-	   
-	<aside>
-		<p>illustration</p>
-	</aside>
-       		
-	<section  class="login-box">
-		<div id="log-box">
-		<h1>LOG-IN</h1>
-			<form action="ValidarUsuario" method="POST">
-				<input type="text" name="user" placeholder="Username">
-				<input type="password" name="pass" placeholder="Password"> 
-				<input type="submit" name="login" class="button button-submit"value="Login">
-			</form>
-		</div>
-	</section>
-    <footer>
-        <small>
-                Copyright &copy; 2015<br/>
-                Actualizado en: 10 Febrero 2015           
-         </small>        
-     </footer>
->>>>>>> branch 'master' of https://github.com/nestorjpa/AllTogetherNews.git
+
 </body>
 </html>

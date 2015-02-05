@@ -16,6 +16,7 @@
 		<ul>
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<li><a href="FormularioAddNews.jsp">INSERTAR NOTICIAS</a><span class="icon-images"></span></li>
 			<li><a href="FormularioTematica.jsp">INSERTAR NUEVA TEMÁTICA</a><span class="icon-file-picture"></span></li>
 			<li><a href="ModifNoticia.jsp">MODIFICAR NOTICIA</a><span class="icon-loop2"></span></li>
@@ -58,3 +59,42 @@
 
 </body>
 </html>
+=======
+			<li><a href="FormularioAddNew">INSERTAR NOTICIAS</a><span class="icon-images"></span></li>
+			<li><a href="FormularioTematica">INSERTAR NUEVA TEMÁTICA</a><span class="icon-file-picture"></span></li>
+			<li><a href="ModifNoticia">MODIFICAR NOTICIA</a><span class="icon-loop2"></span></li>
+		</ul>
+	</nav>
+	
+       		
+	<section class="form-add">
+		<!--<div id="form-box">
+			<form action="InsertarNoticias" method="POST" >
+			<h1>ALTA NOTICIAS</h1>
+			<input type="text" name="url" placeholder="Url"><br>
+			<input type="text" name="PatronUrl" placeholder="Patrón Url">
+			<input type="text" name="PatronNoticia" placeholder="Patrón Noticia">
+			<input type="text" name="PatronTitular" placeholder="Patrón Titular">
+			<input type="text" name="PatronSubtitular" placeholder="Patrón Subtitular">
+
+			<select name="selection">
+				<option selected value="Temática">--Temática--</option>
+				<option value="opc2">Actualidad</option>
+				<option value="opc1">Deportes</option>
+				<option value="opc3">Economía</option>
+			</select>
+  			<input type="submit" name="add" class="button" value="AÑADIR">
+			</form>
+		</div>-->
+	</section>
+    <footer>
+        <small>
+                Copyright &copy; 2015<br/>
+                Actualizado en: 10 Febrero 2015           
+         </small>        
+     </footer>
+
+
+</body>
+</html>
+>>>>>>> branch 'master' of https://github.com/nestorjpa/AllTogetherNews.git
