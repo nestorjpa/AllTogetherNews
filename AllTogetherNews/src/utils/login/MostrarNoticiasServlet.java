@@ -3,6 +3,7 @@ package utils.login;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -58,13 +59,24 @@ public class MostrarNoticiasServlet extends HttpServlet {
 		}	
 		
 		//Le paso la lista al JSP para poder trabajar con ella alli
-		request.setAttribute("lista", lNoticia);
-		request.getRequestDispatcher("NoticiasUsuario.jsp").forward(request,response);
-		
+		//request.setAttribute("lista", lNoticia);
+		//request.getRequestDispatcher("NoticiasUsuario.jsp").forward(request,response);
+		Iterator<Noticia> iteratorPruebaNoticias = lNoticia.iterator();
+		while(iteratorPruebaNoticias.hasNext()){
+			Noticia noti = iteratorPruebaNoticias.next();
+			System.out.println("Titular :"+noti.getTitular());
+			System.out.println("Subtitular :"+noti.getSubti());
+			System.out.println("Link :"+noti.getLink());
+			System.out.println("Fecha :"+noti.getFecha_inserccion());
+			System.out.println("Medio :"+noti.getM().getHome());
+			System.out.println();
+
+			
 		
 		
 		
 		
 	}
 
+}
 }
