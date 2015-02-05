@@ -1,0 +1,112 @@
+@CHARSET "ISO-8859-1";
+/*Layout*/
+
+html {
+	/*margin: 0;*/
+	margin:auto;
+	padding: 0;
+	background:#616161 url(images/newsCollage.JPG) center top repeat;
+	background-size:cover;
+	heigh:100%;
+
+}
+
+body {
+	margin:auto;
+	width: 960px;
+	heigh:100%;
+	/*margin: 0 auto;*/
+	font: 10pt/1.5em Helvetica,"Helvetica neue", Arial, sans-serif;
+	background:#eeeeee;
+	float:center;
+}
+header,section,aside,footer{
+	display: block;
+	
+}
+#headerPag{
+	background:#c82d44;
+	border:3px,black;
+	
+}
+
+#headerPag h1 {
+	font: 32pt Helvetica,"Helvetica neue", Arial, sans-serif;
+	background: url(../images/newsCollage2.jpg) center top no-repeat;
+	text-align: center;
+	text-transform: uppercase;
+	color:#ffffff;
+	text-shadow: 1px 1px 1px #5e1124;
+	padding-top: 30px ;
+	text-shadow: 1px 1px 2px #000000; 
+}
+
+#noticia {
+	float: left;
+	width: 700px;
+	height:100%;
+	min-height: 480px;
+	margin-left: 5%; 
+	margin-rigth: auto; 
+	 
+  	border: #000000 2px solid; 
+	background:#ffffff;
+	
+}
+#noticia article {
+	margin-bottom: 5%;
+}
+#noticia h1{
+	font: 25px Helvetica,"Helvetica neue", Arial, sans-serif;
+	color:#000000;
+	align:justify;
+	margin-left:3%;
+	
+}
+#noticia h2{
+	font: 12px Helvetica,"Helvetica neue", Arial, sans-serif;
+	color:#000000;
+	align:justify;
+	margin-left:3%;
+	
+}
+#noticia p{
+	font: 16px Helvetica,"Helvetica neue", Arial, sans-serif;
+	color:#000000;
+	align:justify;
+	margin-left:3%;
+}
+
+
+aside{
+	float: right;
+	width:150px;
+	padding-left: 20px;
+	margin: 0 0 20px 0px;
+	border-left: 2px dotted #b2a497;
+}
+footer{
+	clear:both !important;
+	width:940px;
+	height: 30px;
+	padding: 10px;
+	color:#200f08 ;
+	background:#d4d4d4;
+	
+	/*Opacity*/
+	filter:alpha(opacity=50); /* msie */  
+	-moz-opacity: 0.50; /* firefox 1.0 */  
+	-khtml-opacity: 0.50; /* webkit */  
+	opacity: 0.50; /* css 3 */
+
+	/*Gradient*/
+	background-image: -moz-linear-gradient(top, #ddd3bf, #bcae91); /* FF3.6 */
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ddd3bf),color-stop(1, #bcae91)); /* Saf4+, Chrome *
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#ddd3bf', EndColorStr='#bcae91'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ddd3bf', EndColorStr='#bcae91')"; /* IE8 */
+
+	/*Round corners*/
+	-moz-border-radius: 12px; /* FF1+ */
+	-webkit-border-radius: 12px; /* Saf3+, Chrome */
+	border-radius: 12px; /* Opera 10.5, IE 9 */
+}

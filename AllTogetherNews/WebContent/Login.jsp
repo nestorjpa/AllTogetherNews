@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+<<<<<<< HEAD
 
 	<%
 	if(request.getAttribute("validacion")==null)
@@ -47,6 +48,7 @@
                 Actualizado en: 10 Febrero 2015           
          </small>        
      </footer>
+
 
 
 </body>
