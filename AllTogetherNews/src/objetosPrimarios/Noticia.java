@@ -8,14 +8,14 @@ public class Noticia {
 	private String titular;
 	private String subti;
 	private String link;
-	private Date fecha_inserccion;
+	private String fecha_inserccion;
 	private Medio m;
 	
 	
 	public Noticia()
 	{}
 	
-	public Noticia(int id,String titular,String subti,String link,Date fecha_inserccion,Medio m)
+	public Noticia(int id,String titular,String subti,String link,String fecha_inserccion,Medio m)
 	{
 		this.id=id;
 		this.titular=titular;
@@ -51,11 +51,11 @@ public class Noticia {
 	public void setLink(String link) {
 		this.link = link;
 	}
-	public Date getFecha_inserccion() {
+	public String getFecha_inserccion() {
 		return fecha_inserccion;
 	}
-	public void setFecha_inserccion(Date fecha_inserccion) {
-		this.fecha_inserccion = fecha_inserccion;
+	public void setFecha_inserccion(String string) {
+		this.fecha_inserccion = string;
 	}
 
 	public Medio getM() {

@@ -150,8 +150,32 @@ public class ControladorDAO implements IControladorDAO {
 		
 		return listaTematica;
 	}
+	@Override
+	public List<Noticia> consultarNoticias() throws SQLException {
+		Noticia n=new Noticia();
+		Medio me=new Medio();
+		List<Noticia> listaNoticias=new ArrayList<Noticia>();
+		Connection conexion=miDS.getConnection();
+		oStmt = conexion.createStatement();
+		String query="SELECT N.TITUAR,N.SUBTITULAR,N.LINK,N.FECHA_INSERCION,N.HOME FROM NOTICIAS N INNER JOIN MEDIOS M ON N.ID_MEDIO=M.ID_MEDIO"; 
+		ResultSet oRs = oStmt.executeQuery(query);
+		while (oRs.next())
+		{
+			
+			n.setTitular(oRs.getString("N.TITULAR"));
+			n.setSubti(oRs.getString("N.SUBTITULAR"));
+			n.setLink(oRs.getString("N.LINK"));
+			n.setFecha_inserccion(oRs.getString("N.FECHA_INSERCION"));
+			me.setHome(oRs.getString("M.HOME"));
+			n.setM(me);
+			listaNoticias.add(n);
+		}
+		oStmt.close();
+		conexion.close();
+		return listaNoticias;
+	}
 
-
+	
 
 
 

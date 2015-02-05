@@ -14,8 +14,7 @@ import objetosPrimarios.Noticia;
 public class Controlador {
 
 	
-	private List<Medio> listaMedios=new ArrayList<Medio>();
-	private List<String> listaTematica=new ArrayList<String>();
+	
 	private static Controlador miControladorPrincipal;
 	private static IControladorDAO miControladorDAO;
 	
@@ -60,6 +59,11 @@ public class Controlador {
 			
 			return miControladorDAO.consultarTematica();
 			
+		}
+
+		public  List<Noticia> consultarNoticias() throws SQLException {
+			
+			return miControladorDAO.consultarNoticias();
 		}
 
 		

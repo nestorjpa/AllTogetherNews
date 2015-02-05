@@ -19,6 +19,8 @@ public interface IControladorDAO {
 	void insertarTematica(String tema) throws SQLException;
 
 	List<String> consultarTematica() throws SQLException;
+
+	List<Noticia> consultarNoticias() throws SQLException;
 	
 	
 
