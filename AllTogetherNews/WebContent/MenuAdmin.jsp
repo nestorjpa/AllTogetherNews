@@ -14,7 +14,14 @@
 	
 	<nav class="vertical">
 		<ul>
+<<<<<<< HEAD
 
+=======
+		
+			<li><a href="FormularioAddNew">INSERTAR NOTICIAS</a><span class="icon-images"></span></li>
+			<li><a href="FormularioTematica">INSERTAR NUEVA TEMÁTICA</a><span class="icon-file-picture"></span></li>
+			<li><a href="ModifNoticia">MODIFICAR NOTICIA</a><span class="icon-loop2"></span></li>
+>>>>>>> branch 'master' of https://github.com/nestorjpa/AllTogetherNews.git
 		</ul>
 	</nav>
 	
