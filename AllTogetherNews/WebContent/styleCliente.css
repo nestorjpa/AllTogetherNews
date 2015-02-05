@@ -43,9 +43,9 @@ header,section,aside,footer{
 
 #noticia {
 	float: left;
-	width: 700px;
-	height:800px;
-	min-height: 480px;
+	width: 900px;
+	height:100%;
+	
 	margin-left: 5%; 
 	margin-rigth: auto; 
 	 

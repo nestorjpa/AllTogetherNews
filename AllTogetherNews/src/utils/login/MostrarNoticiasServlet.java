@@ -58,25 +58,15 @@ public class MostrarNoticiasServlet extends HttpServlet {
 			e.printStackTrace();
 		}	
 		
-		//Le paso la lista al JSP para poder trabajar con ella alli
-		//request.setAttribute("lista", lNoticia);
-		//request.getRequestDispatcher("NoticiasUsuario.jsp").forward(request,response);
-		Iterator<Noticia> iteratorPruebaNoticias = lNoticia.iterator();
-		while(iteratorPruebaNoticias.hasNext()){
-			Noticia noti = iteratorPruebaNoticias.next();
-			System.out.println("Titular :"+noti.getTitular());
-			System.out.println("Subtitular :"+noti.getSubti());
-			System.out.println("Link :"+noti.getLink());
-			System.out.println("Fecha :"+noti.getFecha_inserccion());
-			System.out.println("Medio :"+noti.getM().getHome());
-			System.out.println();
-
-			
 		
+		
+			//Le paso la lista al JSP para poder trabajar con ella alli
+			request.setAttribute("lista", lNoticia);
+			request.getRequestDispatcher("WebCliente.jsp").forward(request,response);
 		
 		
 		
 	}
 
 }
-}
+

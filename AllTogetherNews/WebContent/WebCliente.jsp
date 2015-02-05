@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ page import="java.util.ArrayList,java.util.Iterator,objetosPrimarios.Noticia" %> 
+   
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es">
 <head>
@@ -12,17 +14,29 @@
 <header id="headerPag">
    <h1>All Together News</h1>
 </header>
+<% 
+Iterator<Noticia> iteratorNoticias = ((ArrayList<Noticia>)request.getAttribute("lista")).iterator();
+while(iteratorNoticias.hasNext()){
+	Noticia noti = iteratorNoticias.next();%>
+	
 <section id="noticia">
 <article>
 <header>
- <h1>Titulo noticia<h1>
-  <h2> Subtitulo: </h2>
+ <h1><a href="<%=noti.getLink() %>"><%=noti.getTitular() %></a></h1>
+ <h2><%=noti.getFecha_inserccion() %><% out.print(" | "); %><%=noti.getM().getHome() %>  </h2>
+ <p><%=noti.getSubti() %> </p>
 </header>
-<p> Contenido </p>
-<h2> Medio y fecha: </h2>
-<p><a href="Link">Link</a> <p>
+
+<p> <p>
 </article>
-</section>
+</section>	
+<%
+}
+%>	
+
+
+
+
 
 <aside>
    <h3>Titulo de contenido</h3>
