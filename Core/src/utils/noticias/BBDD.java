@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class BBDD {
 
@@ -73,5 +75,106 @@ public class BBDD {
 		return listaMedios;		
 	}
 	
+	public static void insertaNoticias(HashMap<String,ArrayList<Noticia>> todasLasNoticiasHashMap){
+		
+		Iterator<String> itrHashMap = todasLasNoticiasHashMap.keySet().iterator();
+		String clave;
+		ArrayList<Noticia> arrayNoticiasMedio;
+		ArrayList<Noticia> arrayUltimasNoticias;
+		while (itrHashMap.hasNext()){
+			clave= itrHashMap.next();
+			//La clave es home, la url del site
+			arrayNoticiasMedio= todasLasNoticiasHashMap.get(clave);
+			arrayUltimasNoticias= comprobarUltimasNoticias (arrayNoticiasMedio, clave);	
+		}
+		
+	}
+	
+	public static ArrayList<Noticia> comprobarUltimasNoticias (ArrayList<Noticia> arrayNoticiasMedio, String medio){
+		//Mira en la BBDD las noticias y crea un arrayList con las que son diferentes
+		//Una noticia es igual si tiene el mismo titular
+		
+		Connection conexion;
+		String sql;
+		Statement stmt;
+		ResultSet resultados;
+		Noticia noticia= new Noticia();
+		ArrayList<String> listaTitularesEnLaBBDD= new ArrayList();
+		
+		conexion = abrirConexion();	
+	    sql="select titular from noticias";
+		try {
+			stmt = conexion.createStatement();
+			resultados = stmt.executeQuery(sql);
+
+			String titular;
+			while (resultados.next()){
+				titular= resultados.getString("titular");
+				listaTitularesEnLaBBDD.add(titular);
+			}
+		
+		//Crear dos iteradores para recorrer la lista arrayNoticiasMedio y arrayTitularesEnLaBBDD
+		//para comprobar si son iguales o distintos. Los distitos se agregan
+		
+		Iterator<Noticia> itrNoticiasMedio = arrayNoticiasMedio.iterator();
+		Iterator<String> itrTitularesEnLaBBDD = listaTitularesEnLaBBDD.iterator();
+		Noticia noticiaAux;
+		String titularAux;
+		ArrayList<Noticia> arrayAux= new ArrayList<Noticia>();
+		
+		while (itrNoticiasMedio.hasNext()){
+			noticiaAux= itrNoticiasMedio.next();
+			while (itrTitularesEnLaBBDD.hasNext()){
+				titularAux= itrTitularesEnLaBBDD.next();
+				if (noticiaAux.getTitular().equals(titularAux)){
+					//No insertar
+					break; //El while interno
+				}else{
+					//No es igual, mirar el siguiente
+				}				
+			}
+			
+		}
+		
+		
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}			
+		
+		cerrarConexion(conexion);
+		
+		
+		
+	}
+	
+	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
