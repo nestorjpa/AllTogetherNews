@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class BBDD {
 
+	private static final String oracleDriver = "oracle.jdbc.OracleDriver";
 	private static final String url = "jdbc:oracle:thin:@192.168.150.199:1521:ORCL";
 	private static final String user = "curso11";
 	private static final String pass = "curso";
@@ -17,7 +18,7 @@ public class BBDD {
 		
 		Connection oCn=null;
 		try {
-			Class.forName("oracle.jdbc.OracleDriver");
+			Class.forName(oracleDriver);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
