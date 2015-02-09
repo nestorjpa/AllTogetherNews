@@ -19,4 +19,14 @@
     <servlet-name>loginServlet</servlet-name>
     <url-pattern>/loginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddNewServlet</display-name>
+    <servlet-name>AddNewServlet</servlet-name>
+    <servlet-class>utils.login.AddNewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddNewServlet</servlet-name>
+    <url-pattern>/AddNewServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
