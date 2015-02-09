@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import objetosPrimarios.Administrador;
+import controladorPrincipal.Controlador;
+
 /**
  * Servlet implementation class loginServlet
  */
@@ -40,54 +43,38 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		String nomb=request.getParameter("text");
 		String pass=request.getParameter("password");
 		String usu=null;
 		String passw=null;
-		String id=null;
-		//Consultar en la bd nombre y pass
+		//Me creo mi controlador para poder gestionar esta parte
+		Controlador control=Controlador.getControlador();
 		
-		//instanciar el driver
+		//Me creo una conexion de BD mediante el datasource y lo llamo desde el controlador
+		control.crearConexionBD();
+		//Me creo una instancia de administrador con lo que he introducido
+		Administrador ad=new Administrador(nomb,pass);
+		//Llamo a validar administrador para que me compare lo que he introducido
+		
 		try {
-			Class.forName("oracle.jdbc.OracleDriver");
-			//Componer la url
-			String sURL="jdbc:oracle:thin:@192.168.150.199:1521:orcl";
-			
-			
-			Connection conexion = DriverManager.getConnection(sURL, "curso11","curso");            
-			
-			Statement sentencia=conexion.createStatement();
-			//resultSet
-			String sSQL="SELECT NOMBRE, PASSWORD, ID_ROLE FROM USUARIOS";
-			 ResultSet oRS=sentencia.executeQuery(sSQL);
-			while(oRS.next()){
-				
-				 usu=oRS.getString("Nombre");
-				 passw=oRS.getString("Password");
-				 id=oRS.getString("Id_ROLE");
-				
-			}
-			
-			if(nomb.equals(usu)&&(pass.equals(passw)&&(id.equals("1")))){
+			if(control.validarAdmin(ad))
+			{
 				HttpSession sesion=request.getSession();
 				sesion.setAttribute("usuario", nomb);
 				
 				request.getRequestDispatcher("FormularioAddNews.jsp").forward(request,response);
 			}
 			
-			
 			else
 			{
-				request.getRequestDispatcher("Login.jsp").forward(request,response);
+					request.getRequestDispatcher("Login.jsp").forward(request,response);
 			}
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		
 	}

@@ -23,7 +23,6 @@ public class Core {
 		Medio currentMedio= null;
 		ArrayList<Noticia> noticiaDelCurrentMedio;
 		
-		
 		while (itrMedios.hasNext()){
 			currentMedio=itrMedios.next();
 			noticiaDelCurrentMedio= getNoticiasMedio(currentMedio);
@@ -39,18 +38,22 @@ public class Core {
 		ArrayList<Noticia> noticiasMedio= new ArrayList();
 		
 		try {
-			doc = Jsoup.connect(medio.getHome()).userAgent("Mozilla").get();		
-			Elements links = doc.select("h2.article-header > a");
+			doc = Jsoup.connect(medio.getHome()).userAgent("Mozilla").get();
 			
+			Elements titulares = doc.select(medio.getPatronTitular());			
+			for (Element titular : titulares) {
+				System.out.println("titular own: "+titular.ownText());
+			}
+			
+			Elements links = doc.select(medio.getPatronLink());			
 			for (Element link : links) {
-				System.out.println("titular own: "+link.ownText());
 				System.out.println("link: "+link.attr("href"));
 			}
 			
-			Elements links2 = doc.select("div.entry-content > p");
+			Elements subtitulares = doc.select(medio.getPatronSubtitular());
 			
-			for (Element link1 : links2) {
-				System.out.println("subtitular own: "+link1.ownText());
+			for (Element subtitular : subtitulares) {
+				System.out.println("subtitular own: "+subtitular.ownText());
 			}
 			
 		} catch (IOException e) {
