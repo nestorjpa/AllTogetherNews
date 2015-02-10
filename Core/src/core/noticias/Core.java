@@ -17,7 +17,7 @@ import utils.noticias.Noticia;
 public class Core {
 
 	
-	public void coreDo(){
+	public static void coreDo(){
 
 		ArrayList<Medio> listaMedios= BBDD.getMedios();
 		Iterator<Medio> itrMedios= listaMedios.iterator();
@@ -39,7 +39,7 @@ public class Core {
 	}
 	
 	
-	public ArrayList<Noticia> getNoticiasMedio(Medio medio){
+	public static ArrayList<Noticia> getNoticiasMedio(Medio medio){
 
 		Document doc;
 		ArrayList<Noticia> noticiasMedio= new ArrayList();
@@ -66,7 +66,7 @@ public class Core {
 			
 			for (Element subtitular : subtitulares) {
 				//System.out.println("subtitular own: "+subtitular.ownText());
-				arraySubTitulares.add(subtitular.ownText());
+				arraySubTitulares.add(subtitular.select("p").first().ownText());
 			}
 			
 		} catch (IOException e) {
@@ -79,7 +79,7 @@ public class Core {
 	}
 
 	
-	public ArrayList<Noticia> crearNoticias (ArrayList<String> arrayTitulares, ArrayList<String> arrayLinks, ArrayList<String> arraySubTitulares){
+	public static ArrayList<Noticia> crearNoticias (ArrayList<String> arrayTitulares, ArrayList<String> arrayLinks, ArrayList<String> arraySubTitulares){
 		
 		ArrayList<Noticia> arrayFinalNoticias= new ArrayList<Noticia>();
 		Noticia noticia= new Noticia();
@@ -89,6 +89,7 @@ public class Core {
 			while (i<arrayTitulares.size()){
 				noticia = new Noticia (arrayTitulares.get(i), arrayLinks.get(i), arraySubTitulares.get(i));
 				arrayFinalNoticias.add(noticia);
+				i++;
 			}
 
 		}else{
