@@ -1,31 +1,28 @@
 package utils.login;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import objetosPrimarios.Administrador;
+import objetosPrimarios.Noticia;
 import controladorPrincipal.Controlador;
 
 /**
- * Servlet implementation class loginServlet
+ * Servlet implementation class MostrarNoticiasServlet
  */
-public class loginServlet extends HttpServlet {
+public class MostrarNoticiasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginServlet() {
+    public MostrarNoticiasServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,9 +31,7 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doPost(request,response);
-		
 	}
 
 	/**
@@ -44,40 +39,32 @@ public class loginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nomb=request.getParameter("user");
-		String pass=request.getParameter("pass");
-		String usu=null;
-		String passw=null;
+		//Me creo una lista Noticias para recuperar lo que devuelve la BD
+		List<Noticia> lNoticia=new ArrayList<Noticia>();
+		
 		//Me creo mi controlador para poder gestionar esta parte
 		Controlador control=Controlador.getControlador();
-		
+								
 		//Me creo una conexion de BD mediante el datasource y lo llamo desde el controlador
 		control.crearConexionBD();
-		//Me creo una instancia de administrador con lo que he introducido
-		Administrador ad=new Administrador(nomb,pass);
-		//Llamo a validar administrador para que me compare lo que he introducido
-		
-		try {
-			if(control.validarAdmin(ad))
-			{
-				HttpSession sesion=request.getSession();
-				sesion.setAttribute("usuario", nomb);
 				
-				request.getRequestDispatcher("FormularioAddNews.jsp").forward(request,response);
-			}
+		try {
 			
-			else
-			{
-					request.getRequestDispatcher("Login.jsp").forward(request,response);
-			}
+			//Recojo lo que devuelve la BD
+			lNoticia=control.consultarNoticias();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
-		}
+		}	
+		
+		//Le paso la lista al JSP para poder trabajar con ella alli
+		request.setAttribute("lista", lNoticia);
+		request.getRequestDispatcher("NoticiasUsuario.jsp").forward(request,response);
+		
+		
 		
 		
 		
 	}
-		
 
 }
