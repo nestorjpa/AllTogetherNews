@@ -5,7 +5,7 @@ html {
 	/*margin: 0;*/
 	margin:auto;
 	padding: 0;
-	background:#616161 url(images/newsCollage.JPG) center top repeat;
+	background:#616161;
 	background-size:cover;
 	heigh:100%;
 
@@ -13,12 +13,13 @@ html {
 
 body {
 	margin:auto;
-	width: 960px;
+	width: 980px;
 	heigh:100%;
 	/*margin: 0 auto;*/
 	font: 10pt/1.5em Helvetica,"Helvetica neue", Arial, sans-serif;
-	background:#eeeeee;
+	background:#eeeeee url(images/news.jpg)center top repeat;
 	float:center;
+	opacity:0.8;
 }
 header,section,aside,footer{
 	display: block;
@@ -26,42 +27,57 @@ header,section,aside,footer{
 }
 #headerPag{
 	background:#c82d44;
-	border:3px,black;
-	
+	margin-bottom:50px;
+	border: 3px solid #000000;
+	border-radius:10px;
+	background: -webkit-linear-gradient(#c82d44, #db6072); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(#c82d44, #db6072); /* For Opera 11.1 to 12.0 */
+ 	background: -moz-linear-gradient(#c82d44, #db6072); /* For Firefox 3.6 to 15 */
+ 	background: linear-gradient(#c82d44, #db6072); /* Standard syntax */
 }
 
 #headerPag h1 {
 	font: 32pt Helvetica,"Helvetica neue", Arial, sans-serif;
-	background: url(../images/newsCollage2.jpg) center top no-repeat;
 	text-align: center;
 	text-transform: uppercase;
 	color:#ffffff;
-	text-shadow: 1px 1px 1px #5e1124;
-	padding-top: 30px ;
-	text-shadow: 1px 1px 2px #000000; 
+	padding: 15px 10px 10px 10px;
+	text-shadow: 2px 2px 2px #000000; 
+}
+#headerPag small {
+	font: 15pt Helvetica,"Helvetica neue", Arial, sans-serif;
+	text-transform: uppercase;
+	color:#e0e0e0;
+	padding: 15px 10px 10px 10px;
+	text-shadow: 2px 2px 2px #000000; 
 }
 
 #noticia {
 	float: left;
-	width: 900px;
+	width: 600px;
 	height:100%;
-	
 	margin-left: 5%; 
 	margin-rigth: auto; 
-	 
-  	border: #000000 2px solid; 
-	background:#ffffff;
+	border: #000000 2px solid; 
+	background:#fcfcfc;
 	
 }
 #noticia article {
 	margin-bottom: 5%;
 }
-#noticia h1{
-	font: 25px Helvetica,"Helvetica neue", Arial, sans-serif;
-	color:#000000;
+#noticia h1 a{
+	font: 23px Helvetica,"Helvetica neue", Arial, sans-serif;
+	font-weight: bold;
+	color:#a60000;
 	align:justify;
 	margin-left:3%;
 	
+}
+#noticia h1 a:hover{
+	color:#5c5c5c;
+}
+#noticia h1 a:visited{
+	color:#000000;
 }
 #noticia h2{
 	font: 12px Helvetica,"Helvetica neue", Arial, sans-serif;
@@ -78,33 +94,25 @@ header,section,aside,footer{
 }
 
 
-aside{
-	float: right;
-	width:150px;
-	padding-left: 20px;
-	margin: 0 0 20px 0px;
-	border-left: 2px dotted #b2a497;
-}
 footer{
 	clear:both !important;
 	width:940px;
 	height: 30px;
 	padding: 10px;
-	color:#200f08 ;
-	background:#d4d4d4;
+	color:#e8e8e8 ;
+	background:#000000;
 	
 	/*Opacity*/
-	filter:alpha(opacity=50); /* msie */  
-	-moz-opacity: 0.50; /* firefox 1.0 */  
-	-khtml-opacity: 0.50; /* webkit */  
-	opacity: 0.50; /* css 3 */
-
-	/*Gradient*/
-	background-image: -moz-linear-gradient(top, #ddd3bf, #bcae91); /* FF3.6 */
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ddd3bf),color-stop(1, #bcae91)); /* Saf4+, Chrome *
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#ddd3bf', EndColorStr='#bcae91'); /* IE6,IE7 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ddd3bf', EndColorStr='#bcae91')"; /* IE8 */
-
+	filter:alpha(opacity=80); /* msie */  
+	-moz-opacity: 0.80; /* firefox 1.0 */  
+	-khtml-opacity: 0.80; /* webkit */  
+	opacity: 0.80; /* css 3 */
+ 
+ 	background: -webkit-linear-gradient(#000000, #3e3e3e); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(#000000, #3e3e3e); /* For Opera 11.1 to 12.0 */
+ 	background: -moz-linear-gradient(#000000, #3e3e3e); /* For Firefox 3.6 to 15 */
+ 	background: linear-gradient(#000000, #3e3e3e); /* Standard syntax */
+	
 	/*Round corners*/
 	-moz-border-radius: 12px; /* FF1+ */
 	-webkit-border-radius: 12px; /* Saf3+, Chrome */

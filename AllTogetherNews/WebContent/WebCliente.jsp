@@ -11,8 +11,9 @@
 <title>All Together News</title>
 </head>
 <body>
+<div id="content">
 <header id="headerPag">
-   <h1>All Together News</h1>
+   <h1>All Together News<small>Todos Informados</small></h1>
 </header>
 <% 
 Iterator<Noticia> iteratorNoticias = ((ArrayList<Noticia>)request.getAttribute("lista")).iterator();
@@ -20,30 +21,18 @@ while(iteratorNoticias.hasNext()){
 	Noticia noti = iteratorNoticias.next();%>
 	
 <section id="noticia">
-<article>
-<header>
  <h1><a href="<%=noti.getLink() %>"><%=noti.getTitular() %></a></h1>
  <h2><%=noti.getFecha_inserccion() %><% out.print(" | "); %><%=noti.getM().getHome() %>  </h2>
  <p><%=noti.getSubti() %> </p>
-</header>
 
-<p> <p>
-</article>
 </section>	
 <%
 }
 %>	
 
-
-
-
-
-<aside>
-   <h3>Titulo de contenido</h3>
-           <p>contenido</p>
-</aside>
 <footer>
 <div>2015<span>AllTogetherNews.es</span></div> 
 </footer>
+</div>
 </body>
 </html>
