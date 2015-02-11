@@ -4,7 +4,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8" />
-<title>Login Administrador</title>
+<title>Menu Administrador</title>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -23,27 +23,7 @@
 		</ul>
 	</nav>
 	
-       		
-	<section class="form-add">
-		<!--<div id="form-box">
-			<form action="InsertarNoticias" method="POST" >
-			<h1>ALTA NOTICIAS</h1>
-			<input type="text" name="url" placeholder="Url"><br>
-			<input type="text" name="PatronUrl" placeholder="Patrón Url">
-			<input type="text" name="PatronNoticia" placeholder="Patrón Noticia">
-			<input type="text" name="PatronTitular" placeholder="Patrón Titular">
-			<input type="text" name="PatronSubtitular" placeholder="Patrón Subtitular">
-
-			<select name="selection">
-				<option selected value="Temática">--Temática--</option>
-				<option value="opc2">Actualidad</option>
-				<option value="opc1">Deportes</option>
-				<option value="opc3">Economía</option>
-			</select>
-  			<input type="submit" name="add" class="button" value="AÑADIR">
-			</form>
-		</div>-->
-	</section>
+       	
     <footer>
         <small>
                 Copyright &copy; 2015<br/>
