@@ -9,6 +9,7 @@
 </head>
 <body>
 
+
 	<%
 	if(request.getAttribute("validacion")==null)
 	{
