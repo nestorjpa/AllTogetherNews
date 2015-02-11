@@ -16,7 +16,7 @@ import utils.noticias.Noticia;
 
 public class Core {
 
-	
+	/*
 	public static void coreDoAll(){
 
 		ArrayList<Medio> listaMedios= BBDD.getMedios();
@@ -25,7 +25,7 @@ public class Core {
 		ArrayList<Noticia> noticiasDelCurrentMedio;
 		HashMap<String,ArrayList<Noticia>> todasLasNoticiasHashMap = new HashMap<String,ArrayList<Noticia>>();
 		
-		/*Este es el bloque al que aplicar multihilo*/
+		//Este es el bloque al que aplicar multihilo
 		while (itrMedios.hasNext()){
 			currentMedio=itrMedios.next();
 			noticiasDelCurrentMedio= getNoticiasMedio(currentMedio);
@@ -33,10 +33,11 @@ public class Core {
 			//Lo hacemos con un hashmap<String, Noticia>
 			todasLasNoticiasHashMap.put(currentMedio.getHome(), noticiasDelCurrentMedio);
 		}
-		/*hasta aquí multihilo*/
+		//hasta aquí multihilo
 		
 		BBDD.insertaNoticias(todasLasNoticiasHashMap);
 	}
+	*/
 	
 	public static void coreDoOne(Medio medio){
 		//Para reutilizar, utilizamos los mismo que tenemos, solamente que el hashMap tendrá simplemente una sola fila
@@ -50,10 +51,10 @@ public class Core {
 	public static ArrayList<Noticia> getNoticiasMedio(Medio medio){
 
 		Document doc;
-		ArrayList<Noticia> noticiasMedio= new ArrayList();
-		ArrayList<String> arrayTitulares= new ArrayList();
-		ArrayList<String> arrayLinks= new ArrayList();
-		ArrayList<String> arraySubTitulares= new ArrayList();
+		ArrayList<Noticia> noticiasMedio= new ArrayList<Noticia>();
+		ArrayList<String> arrayTitulares= new ArrayList<String>();
+		ArrayList<String> arrayLinks= new ArrayList<String>();
+		ArrayList<String> arraySubTitulares= new ArrayList<String>();
 		
 		try {
 			doc = Jsoup.connect(medio.getHome()).userAgent("Mozilla").get();
@@ -119,8 +120,9 @@ public class Core {
 		
 	}
 
-	
+	public static ArrayList<Medio> getTodosLosMediosDeLaBBDD(){
+		return BBDD.getMedios();
+	}
 	
 
-	
 }

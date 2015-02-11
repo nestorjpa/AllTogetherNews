@@ -51,7 +51,7 @@ public class BBDD {
 		Statement stmt;
 		ResultSet resultados;
 		Medio medio= new Medio();
-		ArrayList<Medio> listaMedios= new ArrayList();
+		ArrayList<Medio> listaMedios= new ArrayList<Medio>();
 		
 		conexion = abrirConexion();	
 	    sql="select home, patron_titular, patron_link, patron_subtitular from medios";
@@ -220,6 +220,7 @@ public class BBDD {
 
 		return idMedio;
 	}
+	
 	
 	public static String momentoFechaActual (){
 		//('12-31-2007 12:15','MM-DD-YYYY HH:MI');
