@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 
 public class BBDD {
@@ -102,9 +103,10 @@ public class BBDD {
 		String sql;
 		Statement stmt;
 		ResultSet resultados;
-		ArrayList<String> listaTitularesEnLaBBDD= new ArrayList();
+		HashSet<String> listaTitularesEnLaBBDD= new HashSet<String>();
+		//ArrayList<String> listaTitularesEnLaBBDD= new ArrayList();
 		ArrayList<Noticia> arrayAux = new ArrayList<Noticia>();
-		int idMedio= conocerIdMedio(home);
+		//int idMedio= conocerIdMedio(home);
 		
 		conexion = abrirConexion();	
 	    sql="select n.titular from noticias n, medios m where (n.id_medio= m.id_medio) AND (m.home ='"+home+"')";
@@ -122,13 +124,17 @@ public class BBDD {
 		//para comprobar si son iguales o distintos. Los distitos se agregan
 		
 		Iterator<Noticia> itrNoticiasMedio = arrayNoticiasMedio.iterator();
-		Iterator<String> itrTitularesEnLaBBDD = listaTitularesEnLaBBDD.iterator();
+		//Iterator<String> itrTitularesEnLaBBDD = listaTitularesEnLaBBDD.iterator();
 		Noticia noticiaAux;
-		String titularAux="";
-		
+		//String titularAux="";
+				
 		while (itrNoticiasMedio.hasNext()){
 			noticiaAux= itrNoticiasMedio.next();
-			while (itrTitularesEnLaBBDD.hasNext()){
+			if (!listaTitularesEnLaBBDD.contains(noticiaAux.getTitular())){
+				arrayAux.add(noticiaAux);
+			}
+			
+			/*while (itrTitularesEnLaBBDD.hasNext()){
 				titularAux= itrTitularesEnLaBBDD.next();
 				if (noticiaAux.getTitular().equals(titularAux)){
 					//No insertar
@@ -140,21 +146,21 @@ public class BBDD {
 			if (!noticiaAux.getTitular().equals(titularAux)){
 				arrayAux.add(noticiaAux);
 			}
+			itrTitularesEnLaBBDD. = listaTitularesEnLaBBDD.iterator();
+			*/
 			
-		}
-		
+		}		
 		//En arrayAux están las noticias nuevas, las que hay que subir a la BBDD
 
-		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}			
 		
 		cerrarConexion(conexion);
 
-		return arrayAux;
-		
+		return arrayAux;		
 	}
+	
 	
 	public static void publicarNoticias (ArrayList<Noticia> noticiasAPublicar, String home){
 		

@@ -17,7 +17,7 @@ import utils.noticias.Noticia;
 public class Core {
 
 	
-	public static void coreDo(){
+	public static void coreDoAll(){
 
 		ArrayList<Medio> listaMedios= BBDD.getMedios();
 		Iterator<Medio> itrMedios= listaMedios.iterator();
@@ -35,6 +35,14 @@ public class Core {
 		}
 		/*hasta aquí multihilo*/
 		
+		BBDD.insertaNoticias(todasLasNoticiasHashMap);
+	}
+	
+	public static void coreDoOne(Medio medio){
+		//Para reutilizar, utilizamos los mismo que tenemos, solamente que el hashMap tendrá simplemente una sola fila
+		HashMap<String,ArrayList<Noticia>> todasLasNoticiasHashMap = new HashMap<String,ArrayList<Noticia>>();
+		ArrayList<Noticia> noticiasDelCurrentMedio = getNoticiasMedio(medio);
+		todasLasNoticiasHashMap.put(medio.getHome(), noticiasDelCurrentMedio);
 		BBDD.insertaNoticias(todasLasNoticiasHashMap);
 	}
 	
@@ -56,17 +64,19 @@ public class Core {
 				arrayTitulares.add(titular.ownText());
 			}
 			
+			String linkAux;
 			Elements links = doc.select(medio.getPatronLink());			
 			for (Element link : links) {
 				//System.out.println("link: "+link.attr("href"));
-				arrayLinks.add(link.attr("href"));
+				linkAux = mascaraLink(link.attr("href"), medio.getHome());
+				arrayLinks.add(linkAux);
 			}
 			
 			Elements subtitulares = doc.select(medio.getPatronSubtitular());
 			
 			for (Element subtitular : subtitulares) {
 				//System.out.println("subtitular own: "+subtitular.ownText());
-				arraySubTitulares.add(subtitular.select("p").first().ownText());
+				arraySubTitulares.add(subtitular.select("p").first().text());
 			}
 			
 		} catch (IOException e) {
@@ -99,7 +109,15 @@ public class Core {
 		return arrayFinalNoticias;
 	}
 
+	public static String mascaraLink (String link, String home){
 	
+		if (link.startsWith("/")){
+			return home+link;
+		}else{
+			return link;
+		}
+		
+	}
 
 	
 	
