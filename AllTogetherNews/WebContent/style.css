@@ -1,0 +1,287 @@
+@CHARSET "ISO-8859-1";
+
+
+/*Layout*/
+
+html {
+	margin: 0;
+	padding: 0;
+	background:#eeeeee; /*url(../images/tile1.png) center top repeat;*/
+}
+
+body {
+	width: 940px;
+	margin: 0 auto;
+	font: 10pt/1.5em Helvetica,"Helvetica neue", Arial, sans-serif;
+	background:#616161;
+}
+/*HTML 5 specific*/
+header,section,aside,footer{
+	display: block;
+	
+}
+header{
+	background:#b12145;
+	
+}
+
+h1 {
+	font: 32pt Helvetica,"Helvetica neue", Arial, sans-serif;
+	background: url(../images/newsCollage2.jpg) center top no-repeat;
+	text-align: center;
+	text-transform: uppercase;
+	color:#000000;
+	text-shadow: 1px 1px 1px #5e1124;
+	padding-top: 30px ;
+	text-shadow: 1px 1px 2px #000000; 
+}
+
+aside{
+	float: right;
+	width: 428px;
+	padding-left: 20px;
+	margin: 0 0 20px 0px;
+	border-left: 2px dotted #b2a497;
+	
+	
+}
+
+.login-box{
+	
+	float: left;
+	width: 470px;
+	min-height: 480px;
+	margin: 0 0 20px 0;
+}
+.form-box{
+	
+	float: left;
+	width: 470px;
+	min-height: 480px;
+	margin: 0 0 20px 0;
+}
+
+.vertical{
+	float: left;
+	width: 400px;
+	min-height: 400px;
+	margin: 0 0 40px 0;
+	border-radius: 4px;
+}
+
+
+ .vertical ul li {
+	width: 400px;
+	height: 100px;
+	overflow: hidden;
+	display: block;
+	background: #fff;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+	margin-bottom: 4px;
+	border-left: 10px solid #9f0000;
+	transition: all 300ms ease-in-out;
+	
+ }
+ .vertical ul li:last-child{
+    margin-bottom: 0px;
+}
+ 
+ .vertical ul li a{
+ 	text-align: center;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #333;
+    position:relative;
+    background:#3e3e3e;
+	color:white;
+	font-family: Arial, sans-serif;
+   font-size: 11pt;
+ }
+
+
+.vertical ul li a:hover{
+    border-color: #d50000;
+    background: #6c6c6c;
+}
+
+
+
+#log-box {
+  padding: 20px;
+  width: 250px;
+  background: url(images/fondo-Login.jpg) no-repeat left top;
+  background-size:cover;
+  margin: 0 auto 10px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  box-shadow:inset 0 2px 2px #000000;
+  overflow: hidden;
+  
+}
+
+#form-box {
+  padding: 20px;
+  width: 300px;
+  background: url(images/fondo-Login.jpg) no-repeat left top;
+  background-size:cover;
+  margin: 0 auto 10px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  box-shadow:inset 0 2px 2px #000000;
+  overflow: hidden;
+  text-align:center;
+  
+}
+ #log-box h1 {
+  font-weight: 100;
+  text-align: center;
+  color:#990000;
+  font: bold 35px "Calibri", Arial;
+  text-shadow: 1px 1px 1px #000000;
+}
+
+#form-box h1 {
+  font-weight: 100;
+  text-align: center;
+  color:#990000;
+  font: bold 35px "Calibri", Arial;
+  text-shadow: 1px 1px 1px #000000;
+}
+#log-box input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+  
+}
+#form-box input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+  
+}
+#log-box input[type=text], input[type=password]{
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  background: #fff;
+  border: 1px solid #990000; 
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+#form-box input[type=text] {
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  background: #fff;
+  border: 1px solid #990000; 
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+ #log-box input[type=text]:hover, input[type=password]:hover {
+  border: 1px solid #990000;
+  border-top: 1px solid #990000;
+  box-shadow:inset 0 1px 2px #4e4e4e;
+}
+#form-box input[type=text]:hover {
+  border: 1px solid #990000;
+  border-top: 1px solid #990000;
+  box-shadow:inset 0 1px 2px #4e4e4e;
+}
+.button {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  height: 36px;
+  padding: 0 8px;
+  align:botom;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.button-submit {
+  background-color: #990000;
+  border-radius: 10px solid #990000 ;
+  /*border.: 0px;*/
+ 
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  
+}
+
+.button-submit:hover {
+  background-color: #BA3838;
+  border-radius: 10px solid #990000;
+  
+  /*border: 0px;*/
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  
+}
+
+.combo select {
+    padding:3px;
+    margin-bottom:15px;
+	-webkit-box-shadow: 0 3px 0 #990000, 0 -1px #BA3838 inset;
+    -moz-box-shadow: 0 3px 0 #990000, 0 -1px #BA3838 inset;
+    box-shadow: 0 3px 0 #990000, 0 -1px #BA3838 inset;
+    background: #990000;
+    color:white;
+    border:none;
+    outline:none;
+    width: 80%;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+
+
+.combo:after {
+    content:url(images/narrow.png) no-repeat relative;
+    font:11px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+
+footer{
+	clear:both !important;
+	width:940px;
+	height: 30px;
+	padding: 10px;
+	color:#200f08 ;
+	background:#ddd3bf;
+	
+	/*Opacity*/
+	filter:alpha(opacity=50); /* msie */  
+	-moz-opacity: 0.50; /* firefox 1.0 */  
+	-khtml-opacity: 0.50; /* webkit */  
+	opacity: 0.50; /* css 3 */
+
+	/*Gradient*/
+	background-image: -moz-linear-gradient(top, #ddd3bf, #bcae91); /* FF3.6 */
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ddd3bf),color-stop(1, #bcae91)); /* Saf4+, Chrome *
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#ddd3bf', EndColorStr='#bcae91'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ddd3bf', EndColorStr='#bcae91')"; /* IE8 */
+
+	/*Round corners*/
+	-moz-border-radius: 12px; /* FF1+ */
+	-webkit-border-radius: 12px; /* Saf3+, Chrome */
+	border-radius: 12px; /* Opera 10.5, IE 9 */
+}
+
+
+

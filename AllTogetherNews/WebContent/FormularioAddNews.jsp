@@ -5,10 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Alta de Noticias</title>
-<link rel="stylesheet" type="text/css" href="estilo2.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div class="form-box">
+
+<header>
+   <h1>All Together News</h1>
+</header>
+	   
+<aside>
+	<p>illustration</p>
+</aside>
+
+<section class="form-box">
+<div id="form-box">
 <h1>ALTA NOTICIAS</h1>
 <form action="AddNewServlet" method="POST">
 <input type="text" name="url" placeholder="Url"><br>
@@ -24,11 +34,17 @@
   <option value="1">Deportes</option>
   <option value="3">Economía</option>
 </select>
-
+</div>
  
  <input type="submit" name="add" class="button button-submit" value="AÑADIR">
  
 </form>
 </div>
+</section>
+<footer>
+<small> Copyright &copy; 2015<br/>
+        Actualizado en: 10 Febrero 2015           
+</small>        
+</footer>
 </body>
 </html>
