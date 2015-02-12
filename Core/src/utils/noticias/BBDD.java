@@ -20,7 +20,7 @@ public class BBDD {
 	private static final String pass = "curso";
 	
 	private static Connection abrirConexion(){
-		
+	//Abrir conexión a la BBDD	
 		Connection oCn=null;
 		try {
 			Class.forName(oracleDriver);
@@ -36,6 +36,7 @@ public class BBDD {
 	}
 	
 	private static void cerrarConexion(Connection c){
+	//Cerrar conexión a la BBDD
 		try {
 			c.close();
 			
@@ -45,7 +46,7 @@ public class BBDD {
 	}
 	
 	public static ArrayList<Medio> getMedios (){
-		
+	//Coge todos los medios que hay en la BBDD y los devuelve en un arrayList	
 		Connection conexion;
 		String sql;
 		Statement stmt;
@@ -80,7 +81,7 @@ public class BBDD {
 	}
 	
 	public static void insertaNoticias(HashMap<String,ArrayList<Noticia>> todasLasNoticiasHashMap){
-		
+	//La función que se encarga de gestionar la inserción en la BBDD, llama a otras para estructurar el código	
 		Iterator<String> itrHashMap = todasLasNoticiasHashMap.keySet().iterator();
 		String clave;
 		ArrayList<Noticia> arrayNoticiasMedio;
@@ -96,17 +97,15 @@ public class BBDD {
 	}
 	
 	public static ArrayList<Noticia> comprobarUltimasNoticias (ArrayList<Noticia> arrayNoticiasMedio, String home){
-		//Mira en la BBDD las noticias y crea un arrayList con las que son diferentes
-		//Una noticia es igual si tiene el mismo titular
+	//Mira en la BBDD las noticias y crea un arrayList con las que son diferentes
+	//Una noticia es igual si tiene el mismo titular
 		
 		Connection conexion;
 		String sql;
 		Statement stmt;
 		ResultSet resultados;
 		HashSet<String> listaTitularesEnLaBBDD= new HashSet<String>();
-		//ArrayList<String> listaTitularesEnLaBBDD= new ArrayList();
 		ArrayList<Noticia> arrayAux = new ArrayList<Noticia>();
-		//int idMedio= conocerIdMedio(home);
 		
 		conexion = abrirConexion();	
 	    sql="select n.titular from noticias n, medios m where (n.id_medio= m.id_medio) AND (m.home ='"+home+"')";
@@ -120,35 +119,14 @@ public class BBDD {
 				listaTitularesEnLaBBDD.add(titular);
 			}
 		
-		//Crear dos iteradores para recorrer la lista arrayNoticiasMedio y arrayTitularesEnLaBBDD
-		//para comprobar si son iguales o distintos. Los distitos se agregan
-		
 		Iterator<Noticia> itrNoticiasMedio = arrayNoticiasMedio.iterator();
-		//Iterator<String> itrTitularesEnLaBBDD = listaTitularesEnLaBBDD.iterator();
 		Noticia noticiaAux;
-		//String titularAux="";
 				
 		while (itrNoticiasMedio.hasNext()){
 			noticiaAux= itrNoticiasMedio.next();
 			if (!listaTitularesEnLaBBDD.contains(noticiaAux.getTitular())){
 				arrayAux.add(noticiaAux);
-			}
-			
-			/*while (itrTitularesEnLaBBDD.hasNext()){
-				titularAux= itrTitularesEnLaBBDD.next();
-				if (noticiaAux.getTitular().equals(titularAux)){
-					//No insertar
-					break; //El while interno
-				}else{
-					//No es igual, mirar el siguiente
-				}
-			}
-			if (!noticiaAux.getTitular().equals(titularAux)){
-				arrayAux.add(noticiaAux);
-			}
-			itrTitularesEnLaBBDD. = listaTitularesEnLaBBDD.iterator();
-			*/
-			
+			}			
 		}		
 		//En arrayAux están las noticias nuevas, las que hay que subir a la BBDD
 
@@ -163,7 +141,7 @@ public class BBDD {
 	
 	
 	public static void publicarNoticias (ArrayList<Noticia> noticiasAPublicar, String home){
-		
+	//Se escriben las nuevas noticias en la BBDD	
 		Connection conexion;
 		String sql;
 		PreparedStatement pstmt;
@@ -195,7 +173,7 @@ public class BBDD {
 	}
 	
 	public static int conocerIdMedio (String home){
-
+	//Para conocer el idMedio de un home dado
 		Connection conexion;
 		String sql;
 		Statement stmt;
@@ -223,7 +201,8 @@ public class BBDD {
 	
 	
 	public static String momentoFechaActual (){
-		//('12-31-2007 12:15','MM-DD-YYYY HH:MI');
+	//Te crea la fecha actual y te la devuelve en un String
+	//('12-31-2007 12:15','MM-DD-YYYY HH:MI');
 		Calendar cal= Calendar.getInstance();
 		
 		String dia = String.valueOf(cal.get(Calendar.DAY_OF_MONTH));
@@ -235,9 +214,7 @@ public class BBDD {
 		String fecha= dia+"-"+mes+"-"+ano+" "+hora+":"+min;
 		return fecha;
 	}
-	
-	
-	
+
 }
 
 
