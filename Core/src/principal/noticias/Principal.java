@@ -23,6 +23,9 @@ public class Principal {
 		Iterator<Medio> itrMedio = arrayMedios.iterator();
 		Medio medio;
 		
+		//Se tiene un pool de hilos y se añaden los nuevos medios a tratar
+		//Es el executorService quien se encarga de la gestión
+		//A medida que van finalizando los procesos va llamando a nuevos
 		while (itrMedio.hasNext()){
 			medio = itrMedio.next();
 			executor.execute(new RecorrerCoreRunnable(medio));

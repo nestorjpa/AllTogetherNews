@@ -16,9 +16,10 @@ import utils.noticias.Noticia;
 
 public class Core {
 
-	/*
+	
 	public static void coreDoAll(){
-
+	//Esta función se utilizaría para lanzar todo el proceso de manera secuencial y no en paralelo
+	//En el funcionamiento típico no se utiliza
 		ArrayList<Medio> listaMedios= BBDD.getMedios();
 		Iterator<Medio> itrMedios= listaMedios.iterator();
 		Medio currentMedio= null;
@@ -37,9 +38,10 @@ public class Core {
 		
 		BBDD.insertaNoticias(todasLasNoticiasHashMap);
 	}
-	*/
+
 	
 	public static void coreDoOne(Medio medio){
+	//Esta función es la llamada en cada proceso paralelo y la que inicia la carga
 		//Para reutilizar, utilizamos los mismo que tenemos, solamente que el hashMap tendrá simplemente una sola fila
 		HashMap<String,ArrayList<Noticia>> todasLasNoticiasHashMap = new HashMap<String,ArrayList<Noticia>>();
 		ArrayList<Noticia> noticiasDelCurrentMedio = getNoticiasMedio(medio);
@@ -49,7 +51,7 @@ public class Core {
 	
 	
 	public static ArrayList<Noticia> getNoticiasMedio(Medio medio){
-
+	//Se utiliza para trocear los campos que queremos de un medio en concreto
 		Document doc;
 		ArrayList<Noticia> noticiasMedio= new ArrayList<Noticia>();
 		ArrayList<String> arrayTitulares= new ArrayList<String>();
@@ -91,7 +93,8 @@ public class Core {
 
 	
 	public static ArrayList<Noticia> crearNoticias (ArrayList<String> arrayTitulares, ArrayList<String> arrayLinks, ArrayList<String> arraySubTitulares){
-		
+	//Se utiliza para generar el array de todas las noticias de un medio, juntando los titulares, subtitlares y enlaces
+	//Habría que pensar otra forma de hacerlo	
 		ArrayList<Noticia> arrayFinalNoticias= new ArrayList<Noticia>();
 		Noticia noticia= new Noticia();
 		int i=0;
@@ -111,7 +114,7 @@ public class Core {
 	}
 
 	public static String mascaraLink (String link, String home){
-	
+	//Se utiliza para generar el enlace de manera correcta
 		if (link.startsWith("/")){
 			return home+link;
 		}else{
