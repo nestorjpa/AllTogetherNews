@@ -36,7 +36,7 @@ while(iteratorNoticias.hasNext()){
 	Noticia noti = iteratorNoticias.next();%>
 <div class="contenido">
 <section>
- <h1><a href="<%=noti.getLink() %>"><%=noti.getTitular() %></a></h1>
+ <h1><a href="<%=noti.getLink() %>" target="_blank"><%=noti.getTitular() %></a></h1>
  <h2><%=noti.getFecha_inserccion() %><% out.print(" | "); %><%=noti.getM().getHome() %>  </h2>
  <p><%=noti.getSubti() %> </p>
 

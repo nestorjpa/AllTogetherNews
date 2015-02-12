@@ -43,6 +43,7 @@ public class MostrarNoticiasServlet extends HttpServlet {
 		//Me creo una lista Noticias para recuperar lo que devuelve la BD
 		List<Noticia> lNoticia=new ArrayList<Noticia>();
 		List<String> lNavegacion=new ArrayList<String>();
+		
 		//Me creo mi controlador para poder gestionar esta parte
 		Controlador control=Controlador.getControlador();
 							
@@ -53,6 +54,7 @@ public class MostrarNoticiasServlet extends HttpServlet {
 			
 			//Recojo lo que devuelve la BD
 			lNoticia=control.consultarNoticias();
+			
 			lNavegacion=control.consultarTematica();
 		} catch (SQLException e) {
 			

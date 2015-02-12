@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import org.jsoup.Jsoup;
+//import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -59,7 +61,6 @@ public class AddNewServlet extends HttpServlet {
 		String patronExcepcion=request.getParameter("PatronExcep");
 		String comboTematica=request.getParameter("Tematica");
 		String dato=request.getParameter("prueba");
-		
 		if (dato==null){dato="add";}
 		List<String> lNoticia=new ArrayList<String>();
 		List<String> lNuevo=new ArrayList<String>();
@@ -73,8 +74,11 @@ public class AddNewServlet extends HttpServlet {
 				lNuevo=control.consultarTematica();
 			
 			request.setAttribute("lista", lNuevo);
+			System.out.println(" he oido el boton y estoy probando");
 			Medio medio=new Medio(patronUrl,comboTematica,patronTitular,patronSubtitular,patronLink,patronExcepcion,patronRaiz);
-			Document doc = Jsoup.connect(medio.getHome()).userAgent("Mozilla").get();
+		
+				System.out.println("Este es el patron del medio "+medio.getHome());
+				Document doc = Jsoup.connect(medio.getHome()).userAgent("Mozilla").get();
 				Elements nodos = doc.select(medio.getPatronRaiz());
 				String titular="";
 				String subtitular="";
@@ -113,9 +117,14 @@ public class AddNewServlet extends HttpServlet {
 				Iterator<String> ite = lNoticia.iterator();
 				while(ite.hasNext()){
 					prueba = ite.next();
-				
+					System.out.println("llego aqui "+prueba);
 				}
-						
+				//Ahora se crea la noticia y se añade al array de Noticias
+
+					
+				
+				
+				
 				request.setAttribute("listaPrueba", lNoticia);
 				request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
 				

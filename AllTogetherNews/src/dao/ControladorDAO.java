@@ -156,13 +156,13 @@ public class ControladorDAO implements IControladorDAO {
 	@Override
 	public List<Noticia> consultarNoticias() throws SQLException {
 		//Noticia n=new Noticia();
-		
+		int contador=0;
 		List<Noticia> listaNoticias=new ArrayList<Noticia>();
 		Connection conexion=miDS.getConnection();
 		oStmt = conexion.createStatement();
-		String query="SELECT N.TITULAR,N.SUBTITULAR,N.LINK,N.FECHA_INSERCION,M.HOME FROM NOTICIAS N INNER JOIN MEDIOS M ON N.ID_MEDIO=M.ID_MEDIO ORDER BY N.FECHA_INSERCION DESC"; 
+		String query="SELECT N.TITULAR,N.SUBTITULAR,N.LINK,N.FECHA_INSERCION,M.HOME FROM NOTICIAS N INNER JOIN MEDIOS M ON N.ID_MEDIO=M.ID_MEDIO ORDER BY N.FECHA_INSERCION DESC "; 
 		ResultSet oRs = oStmt.executeQuery(query);
-		while (oRs.next())
+		while (oRs.next() && (contador<=20))
 		{
 			Noticia n=new Noticia();
 			n.setTitular(oRs.getString("TITULAR"));
@@ -173,6 +173,7 @@ public class ControladorDAO implements IControladorDAO {
 			me.setHome(oRs.getString("HOME"));
 			n.setM(me);
 			listaNoticias.add(n);
+			contador++;
 		}
 		oStmt.close();
 		conexion.close();

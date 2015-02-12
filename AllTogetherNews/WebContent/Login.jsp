@@ -35,8 +35,8 @@
 	<div id="log-box">
 		<h1>LOG-IN</h1>
 			<form action="loginServlet" method="POST">
-				<input type="text" name="user" placeholder="Username" value="admin">
-				<input type="password" name="pass" placeholder="Password" value="admin"> 
+				<input type="text" name="user" placeholder="Username">
+				<input type="password" name="pass" placeholder="Password"> 
 				<input type="submit" name="login" class="button button-submit"value="Login">
 			</form>
 	</div>
