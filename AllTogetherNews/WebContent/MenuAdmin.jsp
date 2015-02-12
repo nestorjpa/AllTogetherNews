@@ -6,28 +6,63 @@
 <meta charset="utf-8" />
 <title>Menu Administrador</title>
 <link rel="stylesheet" href="style.css"/>
+ <script src="jquery-1.11.2.min.js" type="text/javascript"></script>   
 </head>
 <body>
-	<header>
-	   <h1>All Together News</h1>
-	</header>
+<header>
+	<h1>All Together News</h1>
+</header>
 	
-	<nav class="vertical">
-		<ul>
 
-		
-			<li><a href="FormularioAddNews.jsp">INSERTAR NOTICIAS</a><span class="icon-images"></span></li>
-			<li><a href="FormularioTematica.jsp">INSERTAR NUEVA TEMÁTICA</a><span class="icon-file-picture"></span></li>
-			<li><a href="ModifNoticia.jsp">MODIFICAR NOTICIA</a><span class="icon-loop2"></span></li>
+	<ul class="menu">
 
-		</ul>
-	</nav>
+		<li ><a href="#" class="addNew">INSERTAR NOTICIAS</a></li>
+		<li ><a href="#" id="addTema">INSERTAR NUEVA TEMÁTICA</a></li>
+		<li ><a href="#" id="modifNew">MODIFICAR NOTICIA</a></li>
+
+	</ul>
+
+
+<script>
+
+$(document).ready(function(){
+	$( ".menu" ).on("click",".addNew", function() {    
+	       $(".form-box").css("display", "block");
+	    });
+});
+ 
+ </script>
 	
+<section class="form-box">
+
+<h1>ALTA NOTICIAS</h1>
+<form action="AddNewServlet" method="POST">
+<input type="text" name="PatronUrl" placeholder="Patrón Url">
+<input type="text" name="raiz" placeholder="Patrón raíz"><br>
+<input type="text" name="PatronTitular" placeholder="Patrón Titular">
+<input type="text" name="PatronLink" placeholder="Patrón Link">
+<input type="text" name="PatronSubtitular" placeholder="Patrón Subtitular">
+<input type="text" name="PatronExcep" placeholder="Patrón Excepcion">
+
+<div class="combo">
+<select name="Tematica">
+  <option value="NA">--Temática--</option>
+  <option value="2">Actualidad</option>
+  <option value="1">Deportes</option>
+  <option value="3">Economía</option>
+</select>
+</div>
+ 
+ <input type="submit" name="add" class="button button-submit" value="AÑADIR">
+ 
+</form>
+
+</section>
        	
     <footer>
         <small>
                 Copyright &copy; 2015<br/>
-                Actualizado en: 10 Febrero 2015           
+                Actualizado en: 2015           
          </small>        
      </footer>
 
