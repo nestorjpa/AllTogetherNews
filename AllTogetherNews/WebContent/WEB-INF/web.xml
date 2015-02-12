@@ -59,4 +59,24 @@
     <servlet-name>MostrarNoticiasServlet</servlet-name>
     <url-pattern>/MostrarNoticiasServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PruebaServlet</display-name>
+    <servlet-name>PruebaServlet</servlet-name>
+    <servlet-class>utils.login.PruebaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PruebaServlet</servlet-name>
+    <url-pattern>/PruebaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InicioUsuarioServlet</display-name>
+    <servlet-name>InicioUsuarioServlet</servlet-name>
+    <servlet-class>utils.login.InicioUsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InicioUsuarioServlet</servlet-name>
+    <url-pattern>/InicioUsuarioServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
