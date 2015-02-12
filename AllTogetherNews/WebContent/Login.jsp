@@ -27,10 +27,7 @@
     <header>
 	   <h1>All Together News</h1>
 	 </header>
-	   
-	<aside>
-		<p>illustration</p>
-	</aside>
+
        		
 	<section  class="login-box">
 		<div id="log-box">

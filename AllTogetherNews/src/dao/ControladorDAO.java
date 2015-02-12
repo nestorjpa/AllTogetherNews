@@ -75,7 +75,7 @@ public class ControladorDAO implements IControladorDAO {
 		System.out.println("Voy a insertar "+m.getPatronSubtitular());
 		System.out.println("Voy a insertar "+m.getTematica());
 		System.out.println("Voy a insertar "+m.getPatronLink());
-		String query="INSERT INTO MEDIOS(ID_MEDIO, HOME, ID_TEMATICA, PATRON_TITULAR, PATRON_SUBTITULAR, PATRON_LINK) VALUES (medios_seq.nextval,'"+m.getHome()+"',1,'"+m.getPatronTitular()+"','"+m.getPatronSubtitular()+"','"+m.getPatronLink()+"')";
+		String query="INSERT INTO MEDIOS(ID_MEDIO, HOME, ID_TEMATICA, PATRON_TITULAR, PATRON_SUBTITULAR, PATRON_LINK,PATRON_RAIZ,PATRON_EXCEPCION) VALUES (medios_seq.nextval,'"+m.getHome()+"',1,'"+m.getPatronTitular()+"','"+m.getPatronSubtitular()+"','"+m.getPatronLink()+"','"+m.getPatronRaiz()+"','"+m.getPatronExcepcion()+"')";
 		oStmt.executeUpdate(query);
 		oStmt.close();
 		conexion.close();

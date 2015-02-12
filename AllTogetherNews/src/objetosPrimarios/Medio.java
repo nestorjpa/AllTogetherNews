@@ -5,15 +5,17 @@ public class Medio {
 	
 	private String home;
 	private String tematica;
+	private String patronRaiz;
 	private String patronTitular;
 	private String patronSubtitular;
 	private String patronLink;
+	private String patronExcepcion;
 	
 	
 	
 	public Medio(){}
 	
-	public Medio(String home,String id_tematica,String patronTitular,String patronSubtitular,String patronLink)
+	public Medio(String home,String id_tematica,String patronTitular,String patronSubtitular,String patronLink,String patronExcepcion,String patronRaiz)
 	{
 		
 		
@@ -22,6 +24,8 @@ public class Medio {
 		this.patronTitular=patronTitular;
 		this.patronSubtitular=patronSubtitular;
 		this.patronLink=patronLink;
+		this.setPatronExcepcion(patronExcepcion);
+		this.setPatronRaiz(patronRaiz);
 		
 	}
 	
@@ -56,6 +60,22 @@ public class Medio {
 	}
 	public void setPatronLink(String patronLink) {
 		this.patronLink = patronLink;
+	}
+
+	public String getPatronRaiz() {
+		return patronRaiz;
+	}
+
+	public void setPatronRaiz(String patronRaiz) {
+		this.patronRaiz = patronRaiz;
+	}
+
+	public String getPatronExcepcion() {
+		return patronExcepcion;
+	}
+
+	public void setPatronExcepcion(String patronExcepcion) {
+		this.patronExcepcion = patronExcepcion;
 	}
 	
 	
