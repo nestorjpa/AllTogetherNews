@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import objetosPrimarios.Administrador;
+import objetosPrimarios.Usuario;
 import controladorPrincipal.Controlador;
 
 /**
@@ -51,6 +52,10 @@ public class loginServlet extends HttpServlet {
 		String pass=request.getParameter("pass");
 		String usu=null;
 		String passw=null;
+		int numUsus;
+		numUsus=Usuario.numUsuarios;
+		
+		
 		//Me creo mi controlador para poder gestionar esta parte
 		Controlador control=Controlador.getControlador();
 		
@@ -74,6 +79,7 @@ public class loginServlet extends HttpServlet {
 				HttpSession sesion=request.getSession();
 				sesion.setAttribute("usuario", nomb);
 				request.setAttribute("lista", lTemas);
+				request.setAttribute("usuarios", numUsus);
 				request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
 			}
 			
