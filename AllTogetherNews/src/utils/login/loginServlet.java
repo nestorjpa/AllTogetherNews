@@ -73,7 +73,6 @@ public class loginServlet extends HttpServlet {
 
 				int numUsus=Usuario.numUsuarios;
 				request.setAttribute("usuarios", numUsus);
-				
 
 				
 				request.getRequestDispatcher("MenuServlet").forward(request,response);

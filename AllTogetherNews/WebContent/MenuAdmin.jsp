@@ -19,14 +19,15 @@
 	
 <p>Numero conectados:<%=request.getAttribute("usuarios") %> </p>
 
-	<ul class="menu">
+ <nav>
+        <ul class="menu">
 
 		<li ><a href="#" class="addNew">INSERTAR NOTICIAS</a></li>
 		<li ><a href="#" class="addTema">INSERTAR NUEVA TEMÁTICA</a></li>
 		<li ><a href="#" id="modifNew">MODIFICAR NOTICIA</a></li>
 
 	</ul>
-
+</nav>
 
 
 <script>

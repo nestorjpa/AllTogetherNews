@@ -39,6 +39,7 @@
 			</form>
 		</div>
 	</section>
+	
     <footer>
         <small>
                 Copyright &copy; 2015<br/>
