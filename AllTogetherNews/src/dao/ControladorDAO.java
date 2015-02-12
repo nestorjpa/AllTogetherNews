@@ -129,6 +129,7 @@ public class ControladorDAO implements IControladorDAO {
 	@Override
 	public List<String> consultarTematica() throws SQLException {
 		
+		System.out.println("Estoy cargando el combo-combo...mira ana");
 		List<String> listaTematica=new ArrayList<String>();
 		String tema;
 		Connection conexion=miDS.getConnection();
@@ -142,6 +143,7 @@ public class ControladorDAO implements IControladorDAO {
 
 			tema= oRs.getString("NOMBRE"); // El argumento es el nombre de la columna
 			listaTematica.add(tema);
+			System.out.println(tema);
 		}
 		oStmt.close();
 		conexion.close();

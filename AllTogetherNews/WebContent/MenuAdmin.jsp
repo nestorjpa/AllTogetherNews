@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ page import="java.util.ArrayList,java.util.Iterator" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es">
 <head>
@@ -35,6 +36,7 @@ $(document).ready(function(){
 	
 <section class="form-box">
 
+
 <h1>ALTA NOTICIAS</h1>
 <form action="AddNewServlet" method="POST">
 <input type="text" name="PatronUrl" placeholder="Patrón Url">
@@ -47,9 +49,14 @@ $(document).ready(function(){
 <div class="combo">
 <select name="Tematica">
   <option value="NA">--Temática--</option>
-  <option value="2">Actualidad</option>
-  <option value="1">Deportes</option>
-  <option value="3">Economía</option>
+  <%Iterator<String> iteratorTemas = ((ArrayList<String>)request.getAttribute("lista")).iterator();
+while(iteratorTemas.hasNext()){
+	String tema = iteratorTemas.next();%>
+	<option ><%=tema%></option>
+<% } %>
+  
+  
+
 </select>
 </div>
  

@@ -53,7 +53,7 @@ public class InsertarTemaServlet extends HttpServlet {
 		}
 		//Vuelvo al jsp para poder hacer otra inserccion o decidir irme
 		
-		request.getRequestDispatcher("FormularioTematica.jsp").forward(request,response);
+		request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
 	}
 
 }

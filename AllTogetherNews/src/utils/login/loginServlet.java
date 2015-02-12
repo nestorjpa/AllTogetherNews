@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +46,7 @@ public class loginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean validacion;
+		List<String> lTemas=new ArrayList<String>();
 		String nomb=request.getParameter("user");
 		String pass=request.getParameter("pass");
 		String usu=null;
@@ -55,14 +58,22 @@ public class loginServlet extends HttpServlet {
 		control.crearConexionBD();
 		//Me creo una instancia de administrador con lo que he introducido
 		Administrador ad=new Administrador(nomb,pass);
-		//Llamo a validar administrador para que me compare lo que he introducido
 		
+		
+		//Consulto las tematicas que existen y las guardo en un array list de String para pasarselo al JSP
+		try {
+			lTemas=control.consultarTematica();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//Llamo a validar administrador para que me compare lo que he introducido
 		try {
 			if(control.validarAdmin(ad))
 			{
 				HttpSession sesion=request.getSession();
 				sesion.setAttribute("usuario", nomb);
-				
+				request.setAttribute("lista", lTemas);
 				request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
 			}
 			
