@@ -17,7 +17,7 @@
 	<h1>All Together News</h1>
 </header>
 	
-<p>Numero conectados: </p>
+<p>Numero conectados:<%=request.getAttribute("usuarios") %> </p>
 
 	<ul class="menu">
 

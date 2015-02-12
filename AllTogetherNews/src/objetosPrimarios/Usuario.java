@@ -1,12 +1,21 @@
 package objetosPrimarios;
 
-public class Usuario {
+import java.util.Observable;
+
+
+
+
+public class Usuario  extends Observable {
 	
 	public static int numUsuarios=0;
 	private String nombre;
 	
 	public Usuario(){
+		
+       
 		numUsuarios++;
+		this.notifyObservers();
+		 this.setChanged();
 	}
 	
 	public Usuario(String nombre)

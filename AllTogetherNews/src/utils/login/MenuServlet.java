@@ -4,18 +4,22 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
+import objetosPrimarios.Usuario;
 import controladorPrincipal.Controlador;
 
 /**
  * Servlet implementation class MenuServlet
  */
-public class MenuServlet extends HttpServlet {
+public class MenuServlet extends HttpServlet implements Observer {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -37,7 +41,8 @@ public class MenuServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		int numUsus;
+		
 		List<String> lTemas=new ArrayList<String>();
 		//Me creo mi controlador para poder gestionar esta parte
 		Controlador control=Controlador.getControlador();
@@ -54,6 +59,12 @@ public class MenuServlet extends HttpServlet {
 		}
 		request.setAttribute("lista", lTemas);
 		request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		
+		
 	}
 
 }

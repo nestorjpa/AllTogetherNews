@@ -52,8 +52,7 @@ public class loginServlet extends HttpServlet {
 		String pass=request.getParameter("pass");
 		String usu=null;
 		String passw=null;
-		int numUsus;
-		numUsus=Usuario.numUsuarios;
+		
 		
 		
 		//Me creo mi controlador para poder gestionar esta parte
@@ -72,9 +71,9 @@ public class loginServlet extends HttpServlet {
 				HttpSession sesion=request.getSession();
 				sesion.setAttribute("usuario", nomb);
 
-			
+				int numUsus=Usuario.numUsuarios;
 				request.setAttribute("usuarios", numUsus);
-				request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
+				
 
 				
 				request.getRequestDispatcher("MenuServlet").forward(request,response);

@@ -39,7 +39,9 @@ public class InicioUsuarioServlet extends HttpServlet {
 		
 		HttpSession sesion = request.getSession();
 		Usuario usu=new Usuario();
-		
+	
+		request.setAttribute("usuarios", Usuario.numUsuarios);
+		request.getRequestDispatcher("MostrarNoticiasServlet").forward(request,response);
 		
 		
 	}
