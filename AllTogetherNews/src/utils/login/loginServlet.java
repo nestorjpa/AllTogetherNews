@@ -46,8 +46,8 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean validacion;
 		
+		boolean validacion;
 		String nomb=request.getParameter("user");
 		String pass=request.getParameter("pass");
 		String usu=null;
@@ -62,7 +62,6 @@ public class loginServlet extends HttpServlet {
 		control.crearConexionBD();
 		//Me creo una instancia de administrador con lo que he introducido
 		Administrador ad=new Administrador(nomb,pass);
-		
 		
 		//Llamo a validar administrador para que me compare lo que he introducido
 		try {

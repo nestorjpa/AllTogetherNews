@@ -47,8 +47,7 @@ public class MenuServlet extends HttpServlet  {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int numUsus;
-		
+				
 		List<String> lTemas=new ArrayList<String>();
 		//Me creo mi controlador para poder gestionar esta parte
 		Controlador control=Controlador.getControlador();
