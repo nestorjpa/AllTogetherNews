@@ -118,7 +118,8 @@ public class ControladorDAO implements IControladorDAO {
 		
 		Connection conexion=miDS.getConnection();
 		oStmt = conexion.createStatement();
-		String query="INSERT INTO TEMATICAS(ID_TEMATICA,NOMBRE) VALUES (tematicas_seq.nextval,'"+tema+"')";
+		String query="INSERT INTO TEMATICAS(ID_TEMATICA,NOMBRE) VALUES (medios_seq.nextval,'"+tema+"')";
+		System.out.println("INSERT INTO TEMATICAS(ID_TEMATICA,NOMBRE) VALUES (tematicas_seq.nextval,'"+tema);
 		oStmt.executeUpdate(query);
 		oStmt.close();
 		conexion.close();

@@ -46,7 +46,7 @@ public class loginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean validacion;
-		List<String> lTemas=new ArrayList<String>();
+		
 		String nomb=request.getParameter("user");
 		String pass=request.getParameter("pass");
 		String usu=null;
@@ -60,21 +60,14 @@ public class loginServlet extends HttpServlet {
 		Administrador ad=new Administrador(nomb,pass);
 		
 		
-		//Consulto las tematicas que existen y las guardo en un array list de String para pasarselo al JSP
-		try {
-			lTemas=control.consultarTematica();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		//Llamo a validar administrador para que me compare lo que he introducido
 		try {
 			if(control.validarAdmin(ad))
 			{
 				HttpSession sesion=request.getSession();
 				sesion.setAttribute("usuario", nomb);
-				request.setAttribute("lista", lTemas);
-				request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
+				
+				request.getRequestDispatcher("MenuServlet").forward(request,response);
 			}
 			
 			else

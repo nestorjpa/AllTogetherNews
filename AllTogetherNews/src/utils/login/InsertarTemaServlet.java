@@ -38,22 +38,24 @@ public class InsertarTemaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String tema=request.getParameter("tematica");
+		System.out.println("recojo esta tematica "+tema);
+		
 		//Me creo mi controlador para poder gestionar esta parte
 		Controlador control=Controlador.getControlador();
 						
 		//Me creo una conexion de BD mediante el datasource y lo llamo desde el controlador
 		control.crearConexionBD();
 		
-		//Inserto el medio en la BD
+		//Inserto el tema en la BD
 		try {
 			control.insertarTematica(tema);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//Vuelvo al jsp para poder hacer otra inserccion o decidir irme
-		
-		request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
+		//Vuelvo al menu
+		System.out.println("he insertado "+tema);
+		request.getRequestDispatcher("MenuServlet").forward(request,response);
 	}
 
 }

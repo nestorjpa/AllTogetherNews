@@ -3,7 +3,6 @@
 
 <%@ page import="java.util.ArrayList,java.util.Iterator" %> 
 
- 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es">
@@ -64,18 +63,16 @@ if($( ".menu" ).on("click",".addTema", function() {
 
   <option value="NA">--Temática--</option>
   <%Iterator<String> iteratorTemas = ((ArrayList<String>)request.getAttribute("lista")).iterator();
-while(iteratorTemas.hasNext()){
-	String tema = iteratorTemas.next();%>
-	<option ><%=tema%></option>
+	while(iteratorTemas.hasNext()){
+		String tema = iteratorTemas.next();%>
+		<option ><%=tema%></option>
 <% } %>
   
   
-
->>>>>>> branch 'master' of https://github.com/nestorjpa/AllTogetherNews.git
 </select>
 </div>
  
- <input type="submit" name="add" class="button button-submit" value="AÑADIR">
+<input type="submit" name="add" class="button button-submit" value="AÑADIR">
  
 </form>
 
@@ -84,7 +81,7 @@ while(iteratorTemas.hasNext()){
 <section class="form-tema">
 
 <h1>Temáticas Almacenadas:</h1>
-<form action="AddNewServlet" method="POST">
+<form action="InsertarTemaServlet" method="POST">
 <ul class="lista">
 
 		

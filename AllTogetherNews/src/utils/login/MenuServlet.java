@@ -1,29 +1,27 @@
 package utils.login;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import objetosPrimarios.Medio;
 import controladorPrincipal.Controlador;
 
 /**
- * Servlet implementation class AddNewServlet
+ * Servlet implementation class MenuServlet
  */
-public class AddNewServlet extends HttpServlet {
+public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddNewServlet() {
+    public MenuServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,8 +30,6 @@ public class AddNewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
 		doPost(request,response);
 	}
 
@@ -41,35 +37,23 @@ public class AddNewServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String patronUrl=request.getParameter("PatronUrl");
-		String patronRaiz=request.getParameter("raiz");
-		String patronTitular=request.getParameter("PatronTitular");
-		String patronLink=request.getParameter("PatronLink");
-		String patronSubtitular=request.getParameter("PatronSubtitular");
-		String patronExcepcion=request.getParameter("PatronExcep");
-		String comboTematica=request.getParameter("Tematica");
-		
+
+		List<String> lTemas=new ArrayList<String>();
 		//Me creo mi controlador para poder gestionar esta parte
 		Controlador control=Controlador.getControlador();
 				
 		//Me creo una conexion de BD mediante el datasource y lo llamo desde el controlador
 		control.crearConexionBD();
-		
-		//Me creo una instancia de medio para introducirlo en la BD
-		Medio me=new Medio(patronUrl,comboTematica,patronTitular,patronSubtitular,patronLink,patronExcepcion,patronRaiz);
-		
-		//Inserto el medio en la BD
-		
+		//Consulto las tematicas que existen y las guardo en un array list de String para pasarselo al JSP
 		try {
-			control.insertarMedio(me);
+			
+			lTemas=control.consultarTematica();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		//Vuelvo al jsp para poder hacer otra inserccion o decir irme
-
-		request.getRequestDispatcher("MenuServlet").forward(request,response);
+		request.setAttribute("lista", lTemas);
+		request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
 	}
 
 }
