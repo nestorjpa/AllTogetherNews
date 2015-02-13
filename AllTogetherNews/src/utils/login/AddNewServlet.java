@@ -41,14 +41,14 @@ public class AddNewServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url=request.getParameter("url");
 		String patronUrl=request.getParameter("PatronUrl");
-		String patronNoticia=request.getParameter("PatronNoticia");
+		String patronRaiz=request.getParameter("raiz");
 		String patronTitular=request.getParameter("PatronTitular");
+		String patronLink=request.getParameter("PatronLink");
 		String patronSubtitular=request.getParameter("PatronSubtitular");
+		String patronExcepcion=request.getParameter("PatronExcep");
 		String comboTematica=request.getParameter("Tematica");
-		System.out.println("llego a sacar esto"+request.getParameter("url"));
-		System.out.println("llego al servlet y el combo tematica es "+ comboTematica);
+		
 		//Me creo mi controlador para poder gestionar esta parte
 		Controlador control=Controlador.getControlador();
 				
@@ -56,7 +56,7 @@ public class AddNewServlet extends HttpServlet {
 		control.crearConexionBD();
 		
 		//Me creo una instancia de medio para introducirlo en la BD
-		Medio me=new Medio(url,comboTematica,patronTitular,patronSubtitular,patronUrl);
+		Medio me=new Medio(patronUrl,comboTematica,patronTitular,patronSubtitular,patronLink,patronExcepcion,patronRaiz);
 		
 		//Inserto el medio en la BD
 		
@@ -69,7 +69,7 @@ public class AddNewServlet extends HttpServlet {
 		
 		//Vuelvo al jsp para poder hacer otra inserccion o decir irme
 
-		request.getRequestDispatcher("FormularioAddNews.jsp").forward(request,response);
+		request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
 	}
 
 }

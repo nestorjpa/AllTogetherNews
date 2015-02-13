@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <%@ page import="java.util.ArrayList,java.util.Iterator" %> 
+
+ 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es">
 <head>
@@ -45,6 +49,7 @@ if($( ".menu" ).on("click",".addTema", function() {
 	
 <section class="form-box">
 
+
 <h1>ALTA NOTICIAS</h1>
 <form action="AddNewServlet" method="POST">
 <input type="text" name="PatronUrl" placeholder="Patrón Url">
@@ -56,12 +61,17 @@ if($( ".menu" ).on("click",".addTema", function() {
 
 <div class="combo">
 <select name="Tematica">
-   <option value="NA">--Temática--</option>
+
+  <option value="NA">--Temática--</option>
   <%Iterator<String> iteratorTemas = ((ArrayList<String>)request.getAttribute("lista")).iterator();
 while(iteratorTemas.hasNext()){
 	String tema = iteratorTemas.next();%>
 	<option ><%=tema%></option>
 <% } %>
+  
+  
+
+>>>>>>> branch 'master' of https://github.com/nestorjpa/AllTogetherNews.git
 </select>
 </div>
  
@@ -77,12 +87,12 @@ while(iteratorTemas.hasNext()){
 <form action="AddNewServlet" method="POST">
 <ul class="lista">
 
-		<li ><p> 
-  <% iteratorTemas = ((ArrayList<String>)request.getAttribute("lista")).iterator();
-while(iteratorTemas.hasNext()){
-	String tema = iteratorTemas.next();%>
-	<%=tema%>
-<% } %></p></li>
+		
+   <%Iterator<String> iterator = ((ArrayList<String>)request.getAttribute("lista")).iterator();
+	while(iterator.hasNext()){
+	String tema = iterator.next();%>
+	<li ><p> <%=tema%></p></li>
+<% } %>
 	
 
 </ul>
