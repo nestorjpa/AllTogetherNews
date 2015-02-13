@@ -61,7 +61,7 @@ public class Core {
 		try {
 			doc = Jsoup.connect(medio.getHome()).userAgent("Mozilla").get();
 			
-			Elements titulares = doc.select(medio.getPatronTitular());			
+			/*Elements titulares = doc.select(medio.getPatronTitular());			
 			for (Element titular : titulares) {
 				//System.out.println("titular own: "+titular.ownText());
 				arrayTitulares.add(titular.ownText());
@@ -81,6 +81,44 @@ public class Core {
 				//System.out.println("subtitular own: "+subtitular.ownText());
 				arraySubTitulares.add(subtitular.select("p").first().text());
 			}
+			*/
+			
+			Elements nodos = doc.select(medio.getPatronRaiz());
+			String titular="";
+			String subtitular="";
+			String enlace ="";
+			
+			for (Element nodo : nodos) {
+				
+				if (medio.getPatronTitular().equals(medio.getPatronLink())){
+					//patron titular y link son iguales
+					Elements todosTitulares=nodo.select(medio.getPatronTitular());
+					for(Element soloUnTitular :todosTitulares)
+					{
+						titular= soloUnTitular.ownText();
+						enlace= mascaraLink(soloUnTitular.attr("href"),medio.getHome());
+					}
+				}else{
+					//No son iguales
+					
+				}
+
+				Elements todosLosSubtitulares =nodo.getElementsByTag(medio.getPatronSubtitular()).not(medio.getPatronExcepcion());
+				String aux="";
+				for(Element soloUnSubtitular : todosLosSubtitulares)
+				{
+					aux=aux+soloUnSubtitular.text();
+					
+				}
+				subtitular=aux;
+
+				//Ahora se crea la noticia y se añade al array de Noticias
+				
+				noticiasMedio.add(new Noticia(titular, enlace, subtitular));
+				
+			}//fin del recorrido
+			
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -93,6 +131,7 @@ public class Core {
 
 	
 	public static ArrayList<Noticia> crearNoticias (ArrayList<String> arrayTitulares, ArrayList<String> arrayLinks, ArrayList<String> arraySubTitulares){
+	//DEPRECATED
 	//Se utiliza para generar el array de todas las noticias de un medio, juntando los titulares, subtitlares y enlaces
 	//Habría que pensar otra forma de hacerlo	
 		ArrayList<Noticia> arrayFinalNoticias= new ArrayList<Noticia>();

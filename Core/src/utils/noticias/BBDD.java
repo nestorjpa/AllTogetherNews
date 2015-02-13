@@ -55,19 +55,26 @@ public class BBDD {
 		ArrayList<Medio> listaMedios= new ArrayList<Medio>();
 		
 		conexion = abrirConexion();	
-	    sql="select home, patron_titular, patron_link, patron_subtitular from medios";
+	    sql="select home, patron_titular, patron_link, patron_subtitular, patron_raiz, patron_excepcion from medios";
 		try {
 			stmt = conexion.createStatement();
 			resultados = stmt.executeQuery(sql);
 
-			String home,patronTitular,patronLink, patronSubtitular;
+			String home="";
+			String patronTitular="";
+			String patronLink="";
+			String patronSubtitular="";
+			String patronRaiz="";
+			String patronExcepcion="";
 	   
 			while (resultados.next()){
 				home= resultados.getString("home");
 				patronTitular= resultados.getString("patron_titular");
 				patronLink= resultados.getString("patron_link");
 				patronSubtitular= resultados.getString("patron_subtitular");
-				medio = new Medio (home, patronTitular, patronLink, patronSubtitular);
+				patronRaiz= resultados.getString("patron_raiz");
+				patronRaiz= resultados.getString("patron_excepcion");
+				medio = new Medio (home, patronTitular, patronLink, patronSubtitular, patronRaiz, patronExcepcion);
 				listaMedios.add(medio);
 			}
 			
