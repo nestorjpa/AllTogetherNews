@@ -17,6 +17,7 @@
 	<h1>All Together News</h1>
 </header>
 	
+<p>Numero conectados: </p>
 
 	<ul class="menu">
 
@@ -25,6 +26,7 @@
 		<li ><a href="#" id="modifNew">MODIFICAR NOTICIA</a></li>
 
 	</ul>
+
 
 
 <script>
