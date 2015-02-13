@@ -74,7 +74,7 @@ public class loginServlet extends HttpServlet {
 
 			
 				request.setAttribute("usuarios", numUsus);
-				request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
+				
 
 				
 				request.getRequestDispatcher("MenuServlet").forward(request,response);
