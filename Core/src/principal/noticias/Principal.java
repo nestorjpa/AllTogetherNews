@@ -15,13 +15,16 @@ public class Principal {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		//Core.cMedioAll();
+		//Esta llamada es para cuando se quiera ejecutar secuancial
+		//Core.coreDoAll();
+		
+		//A partir de aquí cuando se quiera en paralelo
 		
 		ArrayList<Medio> arrayMedios = Core.getTodosLosMediosDeLaBBDD();
 		
 		ExecutorService executor = Executors.newFixedThreadPool(NUM_HILOS);		
 		Iterator<Medio> itrMedio = arrayMedios.iterator();
-		Medio medio;
+		Medio medio=null;
 		
 		//Se tiene un pool de hilos y se añaden los nuevos medios a tratar
 		//Es el executorService quien se encarga de la gestión
@@ -31,7 +34,7 @@ public class Principal {
 			executor.execute(new RecorrerCoreRunnable(medio));
 		}
 
-		executor.shutdown();
+		executor.shutdown();		
 	}
 
 }

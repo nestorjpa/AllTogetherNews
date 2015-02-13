@@ -73,7 +73,7 @@ public class BBDD {
 				patronLink= resultados.getString("patron_link");
 				patronSubtitular= resultados.getString("patron_subtitular");
 				patronRaiz= resultados.getString("patron_raiz");
-				patronRaiz= resultados.getString("patron_excepcion");
+				patronExcepcion= resultados.getString("patron_excepcion");
 				medio = new Medio (home, patronTitular, patronLink, patronSubtitular, patronRaiz, patronExcepcion);
 				listaMedios.add(medio);
 			}
