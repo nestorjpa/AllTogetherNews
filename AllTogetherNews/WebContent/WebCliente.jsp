@@ -15,7 +15,19 @@
 <header id="headerPag">
    <h1>All Together News<small>Todos Informados</small></h1>
 </header>
-<% 
+<nav>
+<ul>
+<%Iterator<String> iterator = ((ArrayList<String>)request.getAttribute("lNav")).iterator();
+while(iterator.hasNext()){
+	String tema = iterator.next();%>
+
+
+  <li><a href="#home"><%=tema %></a></li>
+<%} %>
+</ul>
+</nav>
+
+<%
 Iterator<Noticia> iteratorNoticias = ((ArrayList<Noticia>)request.getAttribute("lista")).iterator();
 while(iteratorNoticias.hasNext()){
 	Noticia noti = iteratorNoticias.next();%>

@@ -42,10 +42,10 @@ public class MostrarNoticiasServlet extends HttpServlet {
 		
 		//Me creo una lista Noticias para recuperar lo que devuelve la BD
 		List<Noticia> lNoticia=new ArrayList<Noticia>();
-		
+		List<String> lNavegacion=new ArrayList<String>();
 		//Me creo mi controlador para poder gestionar esta parte
 		Controlador control=Controlador.getControlador();
-								
+							
 		//Me creo una conexion de BD mediante el datasource y lo llamo desde el controlador
 		control.crearConexionBD();
 				
@@ -53,6 +53,7 @@ public class MostrarNoticiasServlet extends HttpServlet {
 			
 			//Recojo lo que devuelve la BD
 			lNoticia=control.consultarNoticias();
+			lNavegacion=control.consultarTematica();
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -60,6 +61,7 @@ public class MostrarNoticiasServlet extends HttpServlet {
 		
 			//Le paso la lista al JSP para poder trabajar con ella alli
 			request.setAttribute("lista", lNoticia);
+			request.setAttribute("lNav", lNavegacion);
 			request.getRequestDispatcher("WebCliente.jsp").forward(request,response);
 		
 		
