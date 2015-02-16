@@ -1,6 +1,8 @@
 package utils.login;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -82,6 +84,15 @@ public class PruebaServlet extends HttpServlet {
 				subtitular=aux;
 
 				//Ahora se crea la noticia y se añade al array de Noticias
+				List<String> lNoticia=new ArrayList<String>();
+				
+				lNoticia.add(titular);
+				lNoticia.add(enlace);
+				lNoticia.add(subtitular);
+				
+				request.setAttribute("listaPrueba", lNoticia);
+				request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
+				
 				System.out.println("titular : "+titular);
 				System.out.println("enlace :"+enlace);
 				System.out.println("subtitular :"+subtitular);

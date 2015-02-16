@@ -12,14 +12,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
+import objetosPrimarios.Medio;
 import objetosPrimarios.Usuario;
 import controladorPrincipal.Controlador;
 
 /**
  * Servlet implementation class MenuServlet
  */
-public class MenuServlet extends HttpServlet implements Observer {
+public class MenuServlet extends HttpServlet  {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -59,12 +65,10 @@ public class MenuServlet extends HttpServlet implements Observer {
 		}
 		request.setAttribute("lista", lTemas);
 		request.getRequestDispatcher("MenuAdmin.jsp").forward(request,response);
-	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		
 		
 	}
-
+		
 }
+	
+	
+

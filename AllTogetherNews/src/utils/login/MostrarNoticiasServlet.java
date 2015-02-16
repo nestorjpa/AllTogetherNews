@@ -58,8 +58,6 @@ public class MostrarNoticiasServlet extends HttpServlet {
 			e.printStackTrace();
 		}	
 		
-		
-		
 			//Le paso la lista al JSP para poder trabajar con ella alli
 			request.setAttribute("lista", lNoticia);
 			request.getRequestDispatcher("WebCliente.jsp").forward(request,response);

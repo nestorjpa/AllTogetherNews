@@ -71,10 +71,6 @@ public class loginServlet extends HttpServlet {
 				HttpSession sesion=request.getSession();
 				sesion.setAttribute("usuario", nomb);
 
-				int numUsus=Usuario.numUsuarios;
-				request.setAttribute("usuarios", numUsus);
-
-				
 				request.getRequestDispatcher("MenuServlet").forward(request,response);
 
 			}

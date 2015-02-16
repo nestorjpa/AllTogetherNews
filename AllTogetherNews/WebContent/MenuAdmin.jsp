@@ -17,7 +17,6 @@
 	<h1>All Together News</h1>
 </header>
 	
-<p>Numero conectados:<%=request.getAttribute("usuarios") %> </p>
 
  <nav>
         <ul class="menu">
@@ -46,6 +45,8 @@ if($( ".menu" ).on("click",".addTema", function() {
     $(".form-tema").css("display", "block");
  }));
 });
+
+
  
 </script>
 	
@@ -53,7 +54,7 @@ if($( ".menu" ).on("click",".addTema", function() {
 
 
 <h1>ALTA NOTICIAS</h1>
-<form action="AddNewServlet" method="POST">
+<form action="AddNewServlet" method="POST" >
 <input type="text" name="PatronUrl" placeholder="Patrón Url">
 <input type="text" name="raiz" placeholder="Patrón raíz"><br>
 <input type="text" name="PatronTitular" placeholder="Patrón Titular">
@@ -75,9 +76,11 @@ if($( ".menu" ).on("click",".addTema", function() {
 </select>
 </div>
  
-<input type="submit" name="add" class="button button-submit" value="AÑADIR">
- 
-</form>
+<input type="submit" name="add" class="button-submit" value="AÑADIR" >
+
+<input type="submit" name="prueba" class="button-submit" value="PROBAR" >
+</form>	
+
 
 </section>
 
@@ -98,11 +101,28 @@ if($( ".menu" ).on("click",".addTema", function() {
 </ul>
 <p>Nueva temática:</p>
 <input type="text" name="tematica" placeholder="Url"><br>
-<input type="submit" name="add" class="button button-submit" value="AÑADIR">
- 
+<input type="submit" name="add" class="button button-submit" value="AÑADIR" >
+
 </form>
+</section>
+
+<section class="probar">
+
+
+ <%
+ String prueba=null;
+ if (request.getAttribute("listaPrueba")!=null){
+ Iterator<String> ite = ((ArrayList<String>)request.getAttribute("listaPrueba")).iterator();
+	while(ite.hasNext()){
+		prueba = ite.next();
+	
+		
+	out.println(prueba);
+}} %>
 
 </section>
+
+
        	
 <footer>
   <small>
