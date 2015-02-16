@@ -45,8 +45,13 @@ public class Core {
 		//Para reutilizar, utilizamos los mismo que tenemos, solamente que el hashMap tendrá simplemente una sola fila
 		HashMap<String,ArrayList<Noticia>> todasLasNoticiasHashMap = new HashMap<String,ArrayList<Noticia>>();
 		ArrayList<Noticia> noticiasDelCurrentMedio = getNoticiasMedio(medio);
-		todasLasNoticiasHashMap.put(medio.getHome(), noticiasDelCurrentMedio);
-		BBDD.insertaNoticias(todasLasNoticiasHashMap);
+		if (!noticiasDelCurrentMedio.isEmpty()){
+			todasLasNoticiasHashMap.put(medio.getHome(), noticiasDelCurrentMedio);
+			BBDD.insertaNoticias(todasLasNoticiasHashMap);
+		}else {
+			System.out.println("No hay noticias de "+medio.getHome()+" que cumplan con los patrones");
+		}
+
 	}
 	
 	
@@ -84,11 +89,15 @@ public class Core {
 			*/
 			
 			Elements nodos = doc.select(medio.getPatronRaiz());
-			String titular="";
-			String subtitular="";
-			String enlace ="";
+			String titular;
+			String subtitular;
+			String enlace;
 			
 			for (Element nodo : nodos) {
+			
+			titular=" ";
+			subtitular=" ";
+			enlace =" ";
 				
 				if (medio.getPatronTitular().equals(medio.getPatronLink())){
 					//patron titular y link son iguales
@@ -104,7 +113,7 @@ public class Core {
 				}
 
 				Elements todosLosSubtitulares =nodo.getElementsByTag(medio.getPatronSubtitular()).not(medio.getPatronExcepcion());
-				String aux="";
+				String aux=" ";
 				for(Element soloUnSubtitular : todosLosSubtitulares)
 				{
 					aux=aux+soloUnSubtitular.text();
@@ -114,7 +123,9 @@ public class Core {
 
 				//Ahora se crea la noticia y se añade al array de Noticias
 				
+				if (!titular.equals(" ") && !enlace.equals(" ")){
 				noticiasMedio.add(new Noticia(titular, enlace, subtitular));
+				}
 				
 			}//fin del recorrido
 			
@@ -124,7 +135,7 @@ public class Core {
 			e.printStackTrace();
 		}
 
-		noticiasMedio= crearNoticias(arrayTitulares, arrayLinks, arraySubTitulares);
+		//noticiasMedio= crearNoticias(arrayTitulares, arrayLinks, arraySubTitulares);
 		
 		return noticiasMedio;	
 	}
