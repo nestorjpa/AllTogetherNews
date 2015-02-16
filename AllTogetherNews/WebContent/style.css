@@ -388,8 +388,8 @@ h1 {
 
 footer{
 	clear:both !important;
-	width:960px;
-	height: 30px;
+	/*width:960px;
+	height: 30px;*/
 	padding: 10px;
 	color:#e8e8e8 ;
 	background:#000000;
