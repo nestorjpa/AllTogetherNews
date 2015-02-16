@@ -124,6 +124,11 @@ public class Core {
 				//Ahora se crea la noticia y se añade al array de Noticias
 				
 				if (!titular.equals(" ") && !enlace.equals(" ")){
+					if (!subtitular.equals(" ")){
+						if (subtitular.length()>1000){
+							subtitular=subtitular.substring(0, 999);
+						}
+					}
 				noticiasMedio.add(new Noticia(titular, enlace, subtitular));
 				}
 				
