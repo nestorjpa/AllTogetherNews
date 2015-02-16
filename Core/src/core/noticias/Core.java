@@ -89,11 +89,15 @@ public class Core {
 			*/
 			
 			Elements nodos = doc.select(medio.getPatronRaiz());
-			String titular=" ";
-			String subtitular=" ";
-			String enlace =" ";
+			String titular;
+			String subtitular;
+			String enlace;
 			
 			for (Element nodo : nodos) {
+			
+			titular=" ";
+			subtitular=" ";
+			enlace =" ";
 				
 				if (medio.getPatronTitular().equals(medio.getPatronLink())){
 					//patron titular y link son iguales
@@ -119,7 +123,10 @@ public class Core {
 
 				//Ahora se crea la noticia y se añade al array de Noticias
 				
+				if (!titular.equals(" ") && !enlace.equals(" ")){
 				noticiasMedio.add(new Noticia(titular, enlace, subtitular));
+				}
+				
 			}//fin del recorrido
 			
 			
