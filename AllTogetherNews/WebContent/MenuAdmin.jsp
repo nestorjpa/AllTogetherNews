@@ -13,36 +13,41 @@
  <script src="jquery-1.11.2.min.js" type="text/javascript"></script>   
 </head>
 <body>
+<div class="header">
 <header>
-	<h1>All Together News</h1>
-</header>
-	
+   <h1>All Together News<small>Todos Informados</small></h1>
 
+</header>
+
+<div id="franja">
  <nav>
-        <ul class="menu">
+        <ul >
 
 		<li ><a href="#" class="addNew">INSERTAR NOTICIAS</a></li>
-		<li ><a href="#" class="addTema">INSERTAR NUEVA TEMÁTICA</a></li>
+		<li ><a href="#" class="addTema">INSERTAR TEMÁTICA</a></li>
 		<li ><a href="#" id="modifNew">MODIFICAR NOTICIA</a></li>
 
 	</ul>
 </nav>
 
+</div>
+</div>
+
 
 <script>
 
 $(document).ready(function(){
-	if($( ".menu" ).on("click",".addNew", function() {    
-		 $(".form-tema").css("display", "none");   
-		$(".form-box").css("display", "block");
+	if($( "nav" ).on("click",".addNew", function() {    
+		 $("#form-tema").css("display", "none");   
+		$("#form-box").css("display", "block");
 	      
 	    }));
 });
 
 $(document).ready(function(){
-if($( ".menu" ).on("click",".addTema", function() {    
-    $(".form-box").css("display", "none");
-    $(".form-tema").css("display", "block");
+if($( "nav" ).on("click",".addTema", function() {    
+    $("#form-box").css("display", "none");
+    $("#form-tema").css("display", "block");
  }));
 });
 
@@ -50,8 +55,8 @@ if($( ".menu" ).on("click",".addTema", function() {
  
 </script>
 	
-<section class="form-box">
-
+<section>
+<div id="form-box">
 
 <h1>ALTA NOTICIAS</h1>
 <form action="AddNewServlet" method="POST" >
@@ -73,19 +78,34 @@ if($( ".menu" ).on("click",".addTema", function() {
 <% } %>
   
   
-</select>
+
 </div>
  
 <input type="submit" name="add" class="button-submit" value="AÑADIR" >
 
 <input type="submit" name="prueba" class="button-submit" value="PROBAR" >
-</form>	
 
+
+<div id="probar">
+ <%
+ String prueba=null;
+ if (request.getAttribute("listaPrueba")!=null){
+ Iterator<String> ite = ((ArrayList<String>)request.getAttribute("listaPrueba")).iterator();
+	while(ite.hasNext()){
+		prueba = ite.next();
+	
+		
+	out.println(prueba);
+}} %>
+</div>
+
+</form>	
+</div>
 
 </section>
 
-<section class="form-tema">
-
+<section>
+<div id="form-tema">
 <h1>Temáticas Almacenadas:</h1>
 <form action="InsertarTemaServlet" method="POST">
 <ul class="lista">
@@ -104,26 +124,8 @@ if($( ".menu" ).on("click",".addTema", function() {
 <input type="submit" name="add" class="button button-submit" value="AÑADIR" >
 
 </form>
+</div>
 </section>
-
-<section class="probar">
-
-
- <%
- String prueba=null;
- if (request.getAttribute("listaPrueba")!=null){
- Iterator<String> ite = ((ArrayList<String>)request.getAttribute("listaPrueba")).iterator();
-	while(ite.hasNext()){
-		prueba = ite.next();
-	
-		
-	out.println(prueba);
-}} %>
-
-</section>
-
-
-       	
 <footer>
   <small>
     Copyright &copy; 2015<br/>

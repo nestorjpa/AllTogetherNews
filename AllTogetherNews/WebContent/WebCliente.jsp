@@ -11,28 +11,31 @@
 <title>All Together News</title>
 </head>
 <body>
-
-<header id="headerPag">
+<div class="header">
+<header>
    <h1>All Together News<small>Todos Informados</small></h1>
+
 </header>
+
+
+<div id="franja">
 <nav>
-<ul>
-<%Iterator<String> iterator = ((ArrayList<String>)request.getAttribute("lNav")).iterator();
-while(iterator.hasNext()){
-	String tema = iterator.next();%>
-
-
-  <li><a href="#home"><%=tema %></a></li>
-<%} %>
-</ul>
+	<ul>
+		<%Iterator<String> iterator = ((ArrayList<String>)request.getAttribute("lNav")).iterator();
+		while(iterator.hasNext()){
+		String tema = iterator.next();%>
+		 <li><a href="#home"><%=tema %></a></li>
+		<%} %>
+	</ul>
 </nav>
-
+</div>
+</div>
 <%
 Iterator<Noticia> iteratorNoticias = ((ArrayList<Noticia>)request.getAttribute("lista")).iterator();
 while(iteratorNoticias.hasNext()){
 	Noticia noti = iteratorNoticias.next();%>
-
-<section id="noticia">
+<div class="contenido">
+<section>
  <h1><a href="<%=noti.getLink() %>"><%=noti.getTitular() %></a></h1>
  <h2><%=noti.getFecha_inserccion() %><% out.print(" | "); %><%=noti.getM().getHome() %>  </h2>
  <p><%=noti.getSubti() %> </p>
@@ -41,7 +44,7 @@ while(iteratorNoticias.hasNext()){
 <%
 }
 %>	
-
+</div>
 <footer>
 <div>2015<span>AllTogetherNews.es</span></div> 
 </footer>

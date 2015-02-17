@@ -23,33 +23,30 @@
 	
 	%>
 	
-	
-    <header>
-	   <h1>All Together News</h1>
-	 </header>
+<div class="header">
+<header>
+   <h1>All Together News<small>Todos Informados</small></h1>
 
-       		
-	<section  class="login-box">
-		<div id="log-box">
+</header>
+
+</div>
+    		
+<section>
+	<div id="log-box">
 		<h1>LOG-IN</h1>
 			<form action="loginServlet" method="POST">
 				<input type="text" name="user" placeholder="Username" value="admin">
 				<input type="password" name="pass" placeholder="Password" value="admin"> 
 				<input type="submit" name="login" class="button button-submit"value="Login">
 			</form>
-		</div>
-	</section>
-	
+	</div>
+</section>
+
     <footer>
         <small>
                 Copyright &copy; 2015<br/>
                 Actualizado en: 10 Febrero 2015           
          </small>        
      </footer>
-
-
-
-
-
 </body>
 </html>

@@ -1,96 +1,70 @@
 @CHARSET "ISO-8859-1";
 /*Layout*/
 
-html {
-	/*margin: 0;*/
+html, body {
+	
 	margin:auto;
 	padding: 0;
-	background:#616161;
-	background-size:cover;
-	heigh:100%;
+	display:block;
+	background-color:#e8e8e8;
 
 }
 
-body {
-	margin:auto;
-	width: 980px;
-	heigh:100%;
-	/*margin: 0 auto;*/
-	font: 10pt/1.5em Helvetica,"Helvetica neue", Arial, sans-serif;
-	background: url(images/news.jpg)center top repeat;
-	float:center;
-	
-	/*Opacity*/
-	filter:alpha(opacity=90); /* msie */  
-	-moz-opacity: 0.90; /* firefox 1.0 */  
-	-khtml-opacity: 0.90; /* webkit */  
-	opacity: 0.90; /* css 3 */
-}
 header,section,nav,aside,footer{
 	display: block;
 	
 }
 
-nav{
 
-position: absolute;
+#franja nav{
+
+position: relative;
 left: 0;
-width: 100%;
+margin:auto;
+width: 970px;
+
 
 }
-nav ul{
+#franja nav ul{
 margin: 0 auto;
-width: 940px;
 list-style: none;
 }
-nav ul li{
-float: left;
-}
-nav li {
-	width: 300px;
-	height: 50px;
-	background: #3e3e3e;
+
+#franja nav li {
+	float: left;
+	width: 130px;
+	height:60px;
 	box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 	border-left: 10px solid #c82d44;
-	transition: all 300ms ease-in-out;
-	
+	margin-right:10px;
 	display: list-item;
 	text-align: -webkit-match-parent;
-	
-	
  }
-nav li:last-child{
-    margin-bottom: 0px;
-}
- 
-nav li a{
+
+#franja nav li a{
  	text-align: center;
  	text-decoration: none;
- 	text-transform: uppercase;
- 	padding: 15px 10px 10px 10px;
+ 	padding: 17px 10px 10px 10px;
     display: block;
-    width: 100%;
-    height: 100%;
-    color: #333;
-    position:relative;
-    background:#3e3e3e;
 	color:white;
 	font-family: Arial, sans-serif;
-   	font-size: 11pt;
+   	font-size: 13pt;
  }
 
-
-nav li a:hover{
+#franja nav li a:hover{
     border-color: #d74d62;
     background: #6c6c6c;
 }
- nav ul li.selected a {
+#franja nav ul li.selected a {
     color: #d74d62;
 }
 
-#headerPag{
+.header{
+   	width:100%;
+   	margin:0 auto;
+   	position:relative;
 	background:#c82d44;
-	margin-bottom:50px;
+	align:center;
 	border: 3px solid #000000;
 	border-radius:10px;
 	background: -webkit-linear-gradient(#c82d44, #db6072); /* For Safari 5.1 to 6.0 */
@@ -99,15 +73,23 @@ nav li a:hover{
  	background: linear-gradient(#c82d44, #db6072); /* Standard syntax */
 }
 
-#headerPag h1 {
+#franja{
+  
+   top:115px;
+   left:0;
+   height:60px;
+   background-color:#313B44;
+   border-bottom:6px black solid;
+}
+.header h1 {
 	font: 32pt Helvetica,"Helvetica neue", Arial, sans-serif;
 	text-align: center;
 	text-transform: uppercase;
 	color:#ffffff;
-	padding: 15px 10px 10px 10px;
+	/*padding: 15px 10px 10px 10px;*/
 	text-shadow: 2px 2px 2px #000000; 
 }
-#headerPag small {
+.header small {
 	font: 15pt Helvetica,"Helvetica neue", Arial, sans-serif;
 	text-transform: uppercase;
 	color:#e0e0e0;
@@ -115,53 +97,69 @@ nav li a:hover{
 	text-shadow: 2px 2px 2px #000000; 
 }
 
-#noticia {
-	float: left;
-	width: 600px;
+.contenido{
+	margin:auto;
+	width: 970px;
+	font: 10pt/1.5em Helvetica,"Helvetica neue", Arial, sans-serif;
+	background: url(images/news.jpg)center top repeat;
+	display:block;
+}
+
+section {
+	
+	width: 700px;
 	height:100%;
 	margin-left: 5%; 
 	margin-rigth: auto; 
+	margin-top:5px;
 	border: #000000 2px solid; 
 	background:#fcfcfc;
-	
+	float:left;
+
 }
 
-#noticia h1 a{
+section h1 a{
 	font: 23px Helvetica,"Helvetica neue", Arial, sans-serif;
 	font-weight: bold;
 	color:#a60000;
 	align:justify;
 	margin-left:3%;
 	
+	
 }
-#noticia h1 a:hover{
+section h1 a:hover{
 	color:#5c5c5c;
+	
 }
-#noticia h1 a:visited{
+section h1 a:visited{
 	color:#000000;
+	
 }
-#noticia h2{
+section h2{
 	font: 12px Helvetica,"Helvetica neue", Arial, sans-serif;
 	color:#000000;
 	align:justify;
 	margin-left:3%;
 	
+	
 }
-#noticia p{
+section p{
 	font: 16px Helvetica,"Helvetica neue", Arial, sans-serif;
 	color:#000000;
 	align:justify;
 	margin-left:3%;
+	
 }
 
 
 footer{
 	clear:both !important;
-	width:960px;
+	width:100%;
 	height: 30px;
-	padding: 10px;
+	padding-top: 10px;
 	color:#e8e8e8 ;
 	background:#000000;
+	position:relative;
 	
 	/*Opacity*/
 	filter:alpha(opacity=80); /* msie */  
