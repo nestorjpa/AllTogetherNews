@@ -101,12 +101,27 @@ section{
 	min-height: 100%;
 	font: 10pt/1.5em Helvetica,"Helvetica neue", Arial, sans-serif;
 	background: url(images/news.jpg)center top repeat;
-	background-color:#e8e8e8;
+	
 	opacity:0.80;
+	background-color:#e8e8e8;
 	display:block;
 	margin: 0 auto; 
 	padding: 0;
 
+}
+.formulario{
+	
+	width: 970px;
+	height: 100%;
+	min-height: 100%;
+	font: 10pt/1.5em Helvetica,"Helvetica neue", Arial, sans-serif;
+	background: url(images/news.jpg)center top repeat;
+	
+	opacity:0.80;
+	background-color:#e8e8e8;
+	display:block;
+	margin: 0 auto; 
+	padding: 0;
 }
 
 #log-box {
@@ -151,12 +166,12 @@ section{
 }
 #form-box {
   float: left;
-  width: 380px;
+  width: 300px;
   height:60%;
   top: 30%;  
   left: 20%; 
   position:absolute;
-  margin:3px;
+ margin: 0 0 20px 0;
   padding: 20px;
   display:none;
   background-color:#e8e8e8;
@@ -165,8 +180,8 @@ section{
   box-shadow:inset 0 2px 2px #000000;
   overflow: auto;
 
-
 }
+
 #form-box h1 {
   font-weight: 100;
   text-align: center;
@@ -194,7 +209,7 @@ section{
   box-shadow:inset 0 1px 2px #4e4e4e;
 }
 
-.form-tema input[type=submit] {
+#form-tema input[type=submit] {
   width: 100%;
   display: block;
   margin-bottom: 10px;
@@ -204,7 +219,7 @@ section{
  #form-tema {
   float: left;
   width: 380px;
-  height:60%;
+  /*height:60%;*/
   top: 30%;  
   left: 20%; 
   margin:3px;
@@ -231,61 +246,77 @@ section{
   color:#c82d44;
   font: bold 20px "Calibri", Arial;
   text-shadow: 1px 1px 1px #000000;
+ 
 }
 #form-tema input[type=text] {
   height: 44px;
   font-size: 16px;
   width: 100%;
-  margin-bottom: 10px;
+  margin-top:20px;
+  margin-bottom: 20px;
   background: #fff;
   border: 1px solid #c82d44; 
   padding: 0 8px;
   box-sizing: border-box;
+
 }
 
-.lista{
+#lista{
 	margin:auto;
 	border-radius: 4px;
 	align:center;
+	 margin-bottom: 10px;
+	 
 }
-.lista li {
-	width: 170px;
-	height: 50px;
-	overflow: hidden;
-	display: block;
+
+
+ul#lista {
+	
+    margin: 0px;
+    padding: 0px;
+    width: 130px;
+    height: 50px;
+    display:block;
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    margin-bottom: 30px;
+	
+}
+ul#lista  li{
+	display: inline;
+	float: left;
+	width: 110px;
+	height: 30px;
 	background: #3e3e3e;
 	box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 	margin-top: 5px;
-	margin-bottom: 2px;
+	margin-bottom: 5px;
 	border-left: 10px solid #c82d44;
-	transition: all 300ms ease-in-out;
- }
-  .lista li p{
- 	text-align: center;
- 	text-decoration: none;
- 	text-transform: uppercase;
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: #333;
-    position:relative;
-    background:#3e3e3e;
+	text-align: -webkit-match-parent;
+	
+}
+ul#lista  li a{
+    background-color:#3e3e3e;
 	color:white;
+    text-decoration: none;
 	font-family: Arial, sans-serif;
-   	font-size: 8pt;
- }
+   	font-size: 10pt;
+}
+
 #probar{
-  float:left;
-  width:500px;
-  height:80%;
+  float:right;
+  width:300px;
+  height:40%;
   margin:auto;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-left: 2px dotted #b2a497;
   display:block;
   background-color:#e8e8e8;
   border: 2px solid #000000;
   border-radius: 5px;
   box-shadow:inset 0 2px 2px #000000;
-  overflow: hidden;
+  overflow: auto;
   text-align:center;
 
 }

@@ -25,7 +25,7 @@
 
 		<li ><a href="#" class="addNew">INSERTAR NOTICIAS</a></li>
 		<li ><a href="#" class="addTema">INSERTAR TEMÁTICA</a></li>
-		<li ><a href="#" id="modifNew">MODIFICAR NOTICIA</a></li>
+
 
 	</ul>
 </nav>
@@ -55,7 +55,7 @@ if($( "nav" ).on("click",".addTema", function() {
  
 </script>
 	
-<section>
+<section class="formulario">
 <div id="form-box">
 
 <h1>ALTA NOTICIAS</h1>
@@ -68,7 +68,7 @@ if($( "nav" ).on("click",".addTema", function() {
 <input type="text" name="PatronExcep" placeholder="Patrón Excepcion">
 
 <div class="combo">
-<select name="Tematica">
+<select name="tematica">
 
   <option value="NA">--Temática--</option>
   <%Iterator<String> iteratorTemas = ((ArrayList<String>)request.getAttribute("lista")).iterator();
@@ -77,16 +77,15 @@ if($( "nav" ).on("click",".addTema", function() {
 		<option ><%=tema%></option>
 <% } %>
   
-  
-
+ </select>
 </div>
  
 <input type="submit" name="add" class="button-submit" value="AÑADIR" >
 
 <input type="submit" name="prueba" class="button-submit" value="PROBAR" >
-
-
-<div id="probar">
+</form>
+</div>
+<aside id="probar">
  <%
  String prueba=null;
  if (request.getAttribute("listaPrueba")!=null){
@@ -97,30 +96,27 @@ if($( "nav" ).on("click",".addTema", function() {
 		
 	out.println(prueba);
 }} %>
-</div>
-
-</form>	
-</div>
-
+</aside>	
 </section>
 
 <section>
 <div id="form-tema">
 <h1>Temáticas Almacenadas:</h1>
 <form action="InsertarTemaServlet" method="POST">
-<ul class="lista">
+
+<ul  id="lista">
 
 		
    <%Iterator<String> iterator = ((ArrayList<String>)request.getAttribute("lista")).iterator();
 	while(iterator.hasNext()){
 	String tema = iterator.next();%>
-	<li ><p> <%=tema%></p></li>
-<% } %>
+	<li ><a href="#" ><%=tema%></a></li>
 	
+<% } %>
 
 </ul>
-<p>Nueva temática:</p>
-<input type="text" name="tematica" placeholder="Url"><br>
+
+<input type="text" name="tematica" placeholder="Nueva Temática"><br>
 <input type="submit" name="add" class="button button-submit" value="AÑADIR" >
 
 </form>
