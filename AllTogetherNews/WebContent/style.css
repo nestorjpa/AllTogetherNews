@@ -305,13 +305,15 @@ ul#lista  li a{
 
 #probar{
   float:right;
-  width:300px;
-  height:40%;
-  margin:auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  width:400px;
+  height:70%;
+  top: 30%;  
+  right: 20%; 
+  position:absolute;
+  margin: 0 auto; 
+  padding: 20px0;
   border-left: 2px dotted #b2a497;
-  display:block;
+  display:none;
   background-color:#e8e8e8;
   border: 2px solid #000000;
   border-radius: 5px;

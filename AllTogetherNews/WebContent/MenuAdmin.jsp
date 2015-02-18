@@ -38,8 +38,10 @@
 
 $(document).ready(function(){
 	if($( "nav" ).on("click",".addNew", function() {    
-		 $("#form-tema").css("display", "none");   
+		 $("#form-tema").css("display", "none"); 
+		 $("#probar").css("display", "block");
 		$("#form-box").css("display", "block");
+		
 	      
 	    }));
 });
@@ -47,6 +49,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 if($( "nav" ).on("click",".addTema", function() {    
     $("#form-box").css("display", "none");
+    $("#probar").css("display", "none");
     $("#form-tema").css("display", "block");
  }));
 });
